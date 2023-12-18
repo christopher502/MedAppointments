@@ -27,5 +27,6 @@ namespace MedAppointments
         }
         private void DasboardButtonClick(object sender, EventArgs e) => addUserControl(new DashboardUserControl());
         private void AppointementsButtonClick(object sender, EventArgs e) => addUserControl(new AppointmentUserControl());
+        private void PatientButtonCLick(object sender, EventArgs e) => addUserControl(new PatientUserControl());
     }
 }

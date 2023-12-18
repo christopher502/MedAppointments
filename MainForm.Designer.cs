@@ -82,6 +82,7 @@ namespace MedAppointments
             patientsButton.TabIndex = 20;
             patientsButton.Text = "Patients";
             patientsButton.UseVisualStyleBackColor = true;
+            patientsButton.Click += PatientButtonCLick;
             // 
             // appointmentsButton
             // 
