@@ -94,6 +94,7 @@ namespace MedAppointments
             appointmentsButton.TabIndex = 19;
             appointmentsButton.Text = "Appointments";
             appointmentsButton.UseVisualStyleBackColor = true;
+            appointmentsButton.Click += AppointementsButtonClick;
             // 
             // dashboardButton
             // 
