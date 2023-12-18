@@ -15,6 +15,16 @@ namespace MedAppointments
         public MainForm()
         {
             InitializeComponent();
+            addUserControl(new DashboardUserControl());
         }
+
+        private void addUserControl(UserControl userControl)
+        {
+            userControl.Dock = DockStyle.Fill;
+            panelContainer.Controls.Clear();
+            panelContainer.Controls.Add(userControl);
+            userControl.BringToFront();
+        }
+        private void DasboardButtonClick(object sender, EventArgs e) => addUserControl(new DashboardUserControl());
     }
 }
