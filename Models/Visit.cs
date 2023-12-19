@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MedAppointments.Models;
-using MedAppointments.Enums;
 using System.Threading.Tasks;
 
-namespace MedAppointments.Services
+namespace MedAppointments.Models
 {
-    internal class PatientService
+    internal class Visit
     {
+        public int Id { get; set; }
+        public string type { get; set; }
     }
 }

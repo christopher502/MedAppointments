@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MedAppointments.Models;
-using MedAppointments.Enums;
 using System.Threading.Tasks;
 
-namespace MedAppointments.Services
+namespace MedAppointments.Enums
 {
-    internal class PatientService
+    public enum Gender
     {
+        Male,
+        Female
     }
 }
