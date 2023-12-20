@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedAppointments.Models
+namespace MedAppointments.Data.Entities
 {
     public class Doctor : Person
     {
-        public String username { get; set; }
-        public String password { get; set; }
-        public String speciality {  get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public string speciality { get; set; }
     }
 }

@@ -1,5 +1,5 @@
-﻿using MedAppointments.Configuration;
-using MedAppointments.Models;
+﻿using MedAppointments.Data.DatabaseContext;
+using MedAppointments.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,11 +11,11 @@ namespace MedAppointments.Services
 {
     public class AppointmentService
     {
-        private DatabaseContext databaseContext { get; set; }
+        private AppointmentsContext databaseContext { get; set; }
 
         public AppointmentService()
         {
-            this.databaseContext = new DatabaseContext();
+            this.databaseContext = new AppointmentsContext();
         }
 
         public List<Appointment> GetAllAppointments()

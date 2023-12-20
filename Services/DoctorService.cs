@@ -1,18 +1,18 @@
-﻿using MedAppointments.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MedAppointments.Models;
+using MedAppointments.Data.DatabaseContext;
+using MedAppointments.Data.Entities;
 namespace MedAppointments.Services
 {
     internal class DoctorService
     {
-        private DatabaseContext databaseContext;
+        private AppointmentsContext databaseContext;
         public DoctorService()
         {
-            this.databaseContext = new DatabaseContext();
+            this.databaseContext = new AppointmentsContext();
         }
 
         public List<Doctor> GetAllDoctors()

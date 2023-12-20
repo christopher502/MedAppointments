@@ -57,7 +57,6 @@
             addPatientButton.TabIndex = 4;
             addPatientButton.Text = "Add patient   +";
             addPatientButton.UseVisualStyleBackColor = false;
-            addPatientButton.Click += addPatientButton_Click;
             // 
             // label1
             // 

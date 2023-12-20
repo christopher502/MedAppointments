@@ -1,19 +1,19 @@
-﻿using MedAppointments.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MedAppointments.Models;
+using MedAppointments.Data.DatabaseContext;
+using MedAppointments.Data.Entities;
 
 namespace MedAppointments.Services
 {
     internal class StatusService
     {
-        private DatabaseContext databaseContext;
+        private AppointmentsContext databaseContext;
         public StatusService()
         {
-            this.databaseContext = new DatabaseContext();
+            this.databaseContext = new AppointmentsContext();
         }
 
         public List<Status> GetAllStatusTypes()

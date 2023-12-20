@@ -5,16 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MedAppointments.Models;
 using Org.BouncyCastle.Asn1.X509;
 using MedAppointments.Enums;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-namespace MedAppointments.Configuration
+using MedAppointments.Data.Entities;
+
+namespace MedAppointments.Data.DatabaseContext
 {
-    public class DatabaseContext : DbContext
+    public class AppointmentsContext : DbContext
     {
         public DbSet<Visit> visits { get; set; }
-        public DbSet<Status> statuses {  get; set; }
+        public DbSet<Status> statuses { get; set; }
         public DbSet<Patient> patients { get; set; }
         public DbSet<Doctor> doctors { get; set; }
         public DbSet<Appointment> appointments { get; set; }

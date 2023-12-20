@@ -1,19 +1,19 @@
-﻿using MedAppointments.Configuration;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MedAppointments.Models;
+using MedAppointments.Data.DatabaseContext;
+using MedAppointments.Data.Entities;
 namespace MedAppointments.Services
 {
     internal class VisitService
     {
-        private DatabaseContext databaseContext;
+        private AppointmentsContext databaseContext;
         public VisitService()
         {
-            this.databaseContext = new DatabaseContext();
+            this.databaseContext = new AppointmentsContext();
         }
 
         public List<Visit> GetAllVisitTypes()

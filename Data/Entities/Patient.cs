@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MedAppointments.Models
+namespace MedAppointments.Data.Entities
 {
     public class Patient : Person
     {

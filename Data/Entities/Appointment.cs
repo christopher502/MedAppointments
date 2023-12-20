@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedAppointments.Models
+namespace MedAppointments.Data.Entities
 {
     public class Appointment
     {
