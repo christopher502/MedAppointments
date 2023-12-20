@@ -1,4 +1,6 @@
 ﻿using MedAppointments.Configuration;
+using MedAppointments.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,22 @@ using System.Threading.Tasks;
 
 namespace MedAppointments.Services
 {
-    internal class AppointmentService
+    public class AppointmentService
     {
+        private DatabaseContext databaseContext { get; set; }
+
+        public AppointmentService()
+        {
+            this.databaseContext = new DatabaseContext();
+        }
+
+        public List<Appointment> GetAllAppointments()
+        {
+            return databaseContext.appointments
+                    .Include(p => p.patient)
+                    .Include(v => v.visit)
+                    .Include(s => s.status)
+                    .ToList();
+        }
     }
 }

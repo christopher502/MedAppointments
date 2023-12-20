@@ -1,28 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MedAppointments.Models
 {
-    internal class Appointment
+    public class Appointment
     {
-        private Patient patient {  get; set; }
-        private Visit visit { get; set; }
-        private DateTime date { get; set; }
-        private DateTime time { get; set; }
-        private Status Status { get; set; }
+        [Key]
+        public int id { get; set; }
+        public int patientid { get; set; }
+        public int visitid { get; set; }
+        public int statusid { get; set; }
 
-        public Appointment() { }
+        public DateTime date { get; set; }
 
-        public Appointment(Patient patient, Visit visit, DateTime date, DateTime time, Status status)
-        {
-            this.patient = patient;
-            this.visit = visit;
-            this.date = date;
-            this.time = time;
-            Status = status;
-        }
+        // Navigation properties
+        public virtual Patient patient { get; set; }
+        public virtual Visit visit { get; set; }
+        public virtual Status status { get; set; }
     }
 }

@@ -5,16 +5,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using MedAppointments.Models;
+using Org.BouncyCastle.Asn1.X509;
+using MedAppointments.Enums;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedAppointments.Configuration
 {
     public class DatabaseContext : DbContext
     {
+        public DbSet<Visit> visits { get; set; }
+        public DbSet<Status> statuses {  get; set; }
+        public DbSet<Patient> patients { get; set; }
+        public DbSet<Doctor> doctors { get; set; }
+        public DbSet<Appointment> appointments { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            String connectionString = "Server=localhost;Database=appointments;Port=5432;User Id=postgres;Password=password";
+            string connectionString = "Server=localhost;Database=appointments;Port=5432;User Id=postgres;Password=password";
             optionsBuilder.UseNpgsql(connectionString);
         }
-    }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Patient>()
+                .Property(p => p.gender)
+                .HasConversion(new EnumToStringConverter<Gender>());
+
+            base.OnModelCreating(modelBuilder);
+        }
+    }
 }

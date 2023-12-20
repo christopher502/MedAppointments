@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedAppointments.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,6 +29,12 @@ namespace MedAppointments
             InitializeComponent();
             panel1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 22, 22));
             addPatientButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, addPatientButton.Width, addPatientButton.Height, 22, 22));
+        }
+
+        private void addPatientButton_Click(object sender, EventArgs e)
+        {
+            PatientService patientService = new PatientService();
+            patientService.AddPatient();
         }
     }
 }

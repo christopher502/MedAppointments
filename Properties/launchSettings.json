@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MedAppointments": {
+      "commandName": "Project",
+      "sqlDebugging": true
+    }
+  }
+}

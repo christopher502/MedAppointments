@@ -4,18 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MedAppointments.Models
 {
-    internal class Patient : Person
+    public class Patient : Person
     {
-        private int Visits { get; set; }
-        public Patient() : base() { }
-        public Patient(int Id, string Name, string Surname, string ContactNumber, Gender Gender, DateTime BirthDate, int Visits)
-            : base (Id, Name, Surname, ContactNumber, Gender, BirthDate)
-        {
-            this.Visits = Visits;
-        }
-
+        public int visits { get; set; }
+        public ICollection<Appointment> appointments { get; set; }
     }
 }

@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 
 namespace MedAppointments.Models
 {
-    internal class Doctor : Person
+    public class Doctor : Person
     {
-        
-        private String Speciality {  get; set; }
-        public Doctor() : base() { }
-        public Doctor(int Id, string Name, string Surname, string ContactNumber, Gender Gender, DateTime BirthDate, string Speciality)
-            : base(Id, Name, Surname, ContactNumber, Gender, BirthDate)
-        {
-            this.Speciality = Speciality;
-        }
+        public String username { get; set; }
+        public String password { get; set; }
+        public String speciality {  get; set; }
     }
 }
