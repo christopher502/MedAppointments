@@ -10,7 +10,7 @@ using MedAppointments.Data.Entities;
 
 namespace MedAppointments.Services
 {
-    internal class PatientService
+    public class PatientService
     {
         private AppointmentsContext databaseContext;
         public PatientService()
@@ -21,6 +21,32 @@ namespace MedAppointments.Services
         public List<Patient> GetAllPatients()
         {
             return databaseContext.patients.ToList();
+        }
+
+
+        public Patient? AddPatient(string name, string surname, string contactnumber, Gender gender, DateTime birthdate)
+        {
+            Patient patient = new Patient
+            {
+                name = name,
+                surname = surname,
+                contactnumber = contactnumber,
+                gender = gender,
+                birthdate = birthdate.ToUniversalTime(),
+                visits = 0
+            };
+            databaseContext.patients.Add(patient);
+            try
+            {
+                databaseContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.InnerException.Message);
+                return null;
+            }
+            return patient;
+
         }
     }
 }
