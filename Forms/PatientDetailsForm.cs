@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MedAppointments.Enums;
 using MedAppointments.Services;
+using MedAppointments.Util;
 using MedAppointments.Data.Entities;
+using Microsoft.IdentityModel.Tokens;
+using System.Text.RegularExpressions;
 
 namespace MedAppointments
 {
@@ -31,16 +34,15 @@ namespace MedAppointments
             DateTime birthdate = birthDatePicker.Value;
             Gender gender = Gender.Male;
 
-            Patient? patient = patientService.AddPatient(name, surname, contactnumber, gender, birthdate);
-            
-            if (patient == null)
+            if (Utils.ValidatePatientInputs(name,surname,contactnumber,birthdate))
             {
+                Patient? patient = patientService.AddPatient(name, surname, contactnumber, gender, birthdate);
+                
+                string notification = (patient == null) ? "Could not add new patient due to database issues. Please try again later or contact the administrator!" 
+                    : "Patinet '" + patient.name + " " + patient.surname + "' was successfully added.";
+
                 this.Close();
-                MessageBox.Show("Could not add new patient due to database issues. Please try again later or contact the administrator!");
-            } else
-            {
-                this.Close();
-                MessageBox.Show("Patinet '" + patient.name + " " + patient.surname + "' was successfully added.");
+                MessageBox.Show(notification);
             }
         }
 

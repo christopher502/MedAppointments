@@ -42,7 +42,6 @@ namespace MedAppointments.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.InnerException.Message);
                 return null;
             }
             return patient;
