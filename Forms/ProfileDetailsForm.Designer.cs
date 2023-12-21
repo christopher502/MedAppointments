@@ -28,220 +28,220 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.specialityInput = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.birthDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.genderComboBox = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.numberInput = new System.Windows.Forms.TextBox();
-            this.nameInput = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.surnameInput = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            label7 = new Label();
+            surnameInput = new TextBox();
+            cancelButton = new Button();
+            saveButton = new Button();
+            label6 = new Label();
+            specialityInput = new TextBox();
+            label5 = new Label();
+            birthDatePicker = new DateTimePicker();
+            label4 = new Label();
+            genderComboBox = new ComboBox();
+            label3 = new Label();
+            label2 = new Label();
+            numberInput = new TextBox();
+            nameInput = new TextBox();
+            label1 = new Label();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.surnameInput);
-            this.panel1.Controls.Add(this.cancelButton);
-            this.panel1.Controls.Add(this.saveButton);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.specialityInput);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.birthDatePicker);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.genderComboBox);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.numberInput);
-            this.panel1.Controls.Add(this.nameInput);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(530, 362);
-            this.panel1.TabIndex = 1;
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.FlatAppearance.BorderSize = 0;
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Font = new System.Drawing.Font("Comfortaa", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(125, 298);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 12;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            // 
-            // saveButton
-            // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(217)))), ((int)(((byte)(189)))));
-            this.saveButton.FlatAppearance.BorderSize = 0;
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Comfortaa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(25, 287);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(94, 41);
-            this.saveButton.TabIndex = 11;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(273, 208);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 19);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Speciality";
-            // 
-            // specialityInput
-            // 
-            this.specialityInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.specialityInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.specialityInput.Font = new System.Drawing.Font("Comfortaa", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.specialityInput.Location = new System.Drawing.Point(273, 231);
-            this.specialityInput.Multiline = true;
-            this.specialityInput.Name = "specialityInput";
-            this.specialityInput.Size = new System.Drawing.Size(226, 32);
-            this.specialityInput.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(273, 144);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 19);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Date of Birth";
-            // 
-            // birthDatePicker
-            // 
-            this.birthDatePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.birthDatePicker.Checked = false;
-            this.birthDatePicker.Cursor = System.Windows.Forms.Cursors.No;
-            this.birthDatePicker.Font = new System.Drawing.Font("Comfortaa", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.birthDatePicker.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.birthDatePicker.Location = new System.Drawing.Point(273, 167);
-            this.birthDatePicker.Name = "birthDatePicker";
-            this.birthDatePicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.birthDatePicker.Size = new System.Drawing.Size(226, 31);
-            this.birthDatePicker.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(27, 208);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 19);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Gender";
-            // 
-            // genderComboBox
-            // 
-            this.genderComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.genderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.genderComboBox.Font = new System.Drawing.Font("Comfortaa", 13.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderComboBox.FormattingEnabled = true;
-            this.genderComboBox.ItemHeight = 24;
-            this.genderComboBox.Location = new System.Drawing.Point(27, 231);
-            this.genderComboBox.Name = "genderComboBox";
-            this.genderComboBox.Size = new System.Drawing.Size(226, 32);
-            this.genderComboBox.Sorted = true;
-            this.genderComboBox.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(27, 144);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 19);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Contact Number";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 82);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 19);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Name";
-            // 
-            // numberInput
-            // 
-            this.numberInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.numberInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numberInput.Font = new System.Drawing.Font("Comfortaa", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberInput.Location = new System.Drawing.Point(27, 167);
-            this.numberInput.Multiline = true;
-            this.numberInput.Name = "numberInput";
-            this.numberInput.Size = new System.Drawing.Size(226, 32);
-            this.numberInput.TabIndex = 2;
-            // 
-            // nameInput
-            // 
-            this.nameInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.nameInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nameInput.Font = new System.Drawing.Font("Comfortaa", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameInput.Location = new System.Drawing.Point(27, 104);
-            this.nameInput.Multiline = true;
-            this.nameInput.Name = "nameInput";
-            this.nameInput.Size = new System.Drawing.Size(226, 32);
-            this.nameInput.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Comfortaa", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "My Profile";
+            panel1.BackColor = Color.FromArgb(243, 243, 243);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(surnameInput);
+            panel1.Controls.Add(cancelButton);
+            panel1.Controls.Add(saveButton);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(specialityInput);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(birthDatePicker);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(genderComboBox);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(numberInput);
+            panel1.Controls.Add(nameInput);
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(530, 362);
+            panel1.TabIndex = 1;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(273, 82);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 19);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Surname";
+            label7.AutoSize = true;
+            label7.Font = new Font("Comfortaa", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(273, 82);
+            label7.Name = "label7";
+            label7.Size = new Size(73, 19);
+            label7.TabIndex = 14;
+            label7.Text = "Surname";
             // 
             // surnameInput
             // 
-            this.surnameInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.surnameInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.surnameInput.Font = new System.Drawing.Font("Comfortaa", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.surnameInput.Location = new System.Drawing.Point(273, 104);
-            this.surnameInput.Multiline = true;
-            this.surnameInput.Name = "surnameInput";
-            this.surnameInput.Size = new System.Drawing.Size(226, 32);
-            this.surnameInput.TabIndex = 13;
+            surnameInput.BackColor = Color.FromArgb(223, 223, 223);
+            surnameInput.BorderStyle = BorderStyle.None;
+            surnameInput.Font = new Font("Comfortaa", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            surnameInput.Location = new Point(273, 104);
+            surnameInput.Multiline = true;
+            surnameInput.Name = "surnameInput";
+            surnameInput.Size = new Size(226, 32);
+            surnameInput.TabIndex = 13;
+            // 
+            // cancelButton
+            // 
+            cancelButton.FlatAppearance.BorderSize = 0;
+            cancelButton.FlatStyle = FlatStyle.Flat;
+            cancelButton.Font = new Font("Comfortaa", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cancelButton.Location = new Point(125, 298);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(75, 23);
+            cancelButton.TabIndex = 12;
+            cancelButton.Text = "Cancel";
+            cancelButton.UseVisualStyleBackColor = true;
+            cancelButton.Click += CancelButtonClick;
+            // 
+            // saveButton
+            // 
+            saveButton.BackColor = Color.FromArgb(106, 217, 189);
+            saveButton.FlatAppearance.BorderSize = 0;
+            saveButton.FlatStyle = FlatStyle.Flat;
+            saveButton.Font = new Font("Comfortaa", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            saveButton.Location = new Point(25, 287);
+            saveButton.Name = "saveButton";
+            saveButton.Size = new Size(94, 41);
+            saveButton.TabIndex = 11;
+            saveButton.Text = "Save";
+            saveButton.UseVisualStyleBackColor = false;
+            saveButton.Click += SaveButtonClick;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Comfortaa", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(273, 208);
+            label6.Name = "label6";
+            label6.Size = new Size(74, 19);
+            label6.TabIndex = 10;
+            label6.Text = "Speciality";
+            // 
+            // specialityInput
+            // 
+            specialityInput.BackColor = Color.FromArgb(223, 223, 223);
+            specialityInput.BorderStyle = BorderStyle.None;
+            specialityInput.Font = new Font("Comfortaa", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            specialityInput.Location = new Point(273, 231);
+            specialityInput.Multiline = true;
+            specialityInput.Name = "specialityInput";
+            specialityInput.Size = new Size(226, 32);
+            specialityInput.TabIndex = 9;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Comfortaa", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(273, 144);
+            label5.Name = "label5";
+            label5.Size = new Size(96, 19);
+            label5.TabIndex = 8;
+            label5.Text = "Date of Birth";
+            // 
+            // birthDatePicker
+            // 
+            birthDatePicker.CalendarMonthBackground = Color.FromArgb(223, 223, 223);
+            birthDatePicker.Font = new Font("Comfortaa", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            birthDatePicker.Format = DateTimePickerFormat.Short;
+            birthDatePicker.ImeMode = ImeMode.NoControl;
+            birthDatePicker.Location = new Point(273, 167);
+            birthDatePicker.Name = "birthDatePicker";
+            birthDatePicker.RightToLeft = RightToLeft.No;
+            birthDatePicker.Size = new Size(226, 31);
+            birthDatePicker.TabIndex = 7;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Comfortaa", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(27, 208);
+            label4.Name = "label4";
+            label4.Size = new Size(63, 19);
+            label4.TabIndex = 6;
+            label4.Text = "Gender";
+            // 
+            // genderComboBox
+            // 
+            genderComboBox.BackColor = Color.FromArgb(223, 223, 223);
+            genderComboBox.FlatStyle = FlatStyle.Flat;
+            genderComboBox.Font = new Font("Comfortaa", 13.15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            genderComboBox.FormattingEnabled = true;
+            genderComboBox.ItemHeight = 24;
+            genderComboBox.Location = new Point(27, 231);
+            genderComboBox.Name = "genderComboBox";
+            genderComboBox.Size = new Size(226, 32);
+            genderComboBox.Sorted = true;
+            genderComboBox.TabIndex = 5;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Comfortaa", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(27, 144);
+            label3.Name = "label3";
+            label3.Size = new Size(125, 19);
+            label3.TabIndex = 4;
+            label3.Text = "Contact Number";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Comfortaa", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(27, 82);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 19);
+            label2.TabIndex = 3;
+            label2.Text = "Name";
+            // 
+            // numberInput
+            // 
+            numberInput.BackColor = Color.FromArgb(223, 223, 223);
+            numberInput.BorderStyle = BorderStyle.None;
+            numberInput.Font = new Font("Comfortaa", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            numberInput.Location = new Point(27, 167);
+            numberInput.Multiline = true;
+            numberInput.Name = "numberInput";
+            numberInput.Size = new Size(226, 32);
+            numberInput.TabIndex = 2;
+            // 
+            // nameInput
+            // 
+            nameInput.BackColor = Color.FromArgb(223, 223, 223);
+            nameInput.BorderStyle = BorderStyle.None;
+            nameInput.Font = new Font("Comfortaa", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            nameInput.Location = new Point(27, 104);
+            nameInput.Multiline = true;
+            nameInput.Name = "nameInput";
+            nameInput.Size = new Size(226, 32);
+            nameInput.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Comfortaa", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(25, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(129, 31);
+            label1.TabIndex = 0;
+            label1.Text = "My Profile";
             // 
             // ProfileDetailsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(529, 361);
+            ClientSize = new Size(529, 361);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);

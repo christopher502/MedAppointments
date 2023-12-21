@@ -34,5 +34,29 @@ namespace MedAppointments.Util
             }
             return true;
         }
+
+        public static Boolean ValidateProfileInputs(string name, string surname, string contactnumber, DateTime birthdate, string speciality)
+        {
+            if (name.IsNullOrEmpty() || surname.IsNullOrEmpty() || contactnumber.IsNullOrEmpty() || speciality.IsNullOrEmpty())
+            {
+                MessageBox.Show("All fields are required. Please make sure you filled them all");
+                return false;
+            }
+
+            if (birthdate > DateTime.Now)
+            {
+                MessageBox.Show("Birth date cannot be in the future. Please make sure you entered it correctly!");
+                return false;
+            }
+
+            string pattern = @"^\+40";
+            Regex regex = new Regex(pattern);
+            if (!regex.IsMatch(contactnumber))
+            {
+                MessageBox.Show("Phone number should start with +40");
+                return false;
+            }
+            return true;
+        }
     }
 }

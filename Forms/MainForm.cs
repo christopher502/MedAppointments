@@ -29,5 +29,15 @@ namespace MedAppointments
         private void DasboardButtonClick(object sender, EventArgs e) => addUserControl(new DashboardUserControl());
         private void AppointementsButtonClick(object sender, EventArgs e) => addUserControl(new AppointmentUserControl());
         private void PatientButtonCLick(object sender, EventArgs e) => addUserControl(new PatientUserControl());
+
+        private void MyProfileButtonClick(object sender, EventArgs e)
+        {
+            using (ProfileDetailsForm profileDetails = new ProfileDetailsForm())
+            {
+                profileDetails.StartPosition = FormStartPosition.CenterParent;
+                profileDetails.ShowInTaskbar = false;
+                profileDetails.ShowDialog();
+            }
+        }
     }
 }

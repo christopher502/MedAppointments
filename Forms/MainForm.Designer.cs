@@ -50,6 +50,7 @@ namespace MedAppointments
             panel12.Name = "panel12";
             panel12.Size = new Size(17, 17);
             panel12.TabIndex = 23;
+            panel12.Click += MyProfileButtonClick;
             // 
             // fullNameLabel
             // 

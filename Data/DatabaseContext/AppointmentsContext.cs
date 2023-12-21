@@ -32,6 +32,10 @@ namespace MedAppointments.Data.DatabaseContext
                 .Property(p => p.gender)
                 .HasConversion(new EnumToStringConverter<Gender>());
 
+            modelBuilder.Entity<Doctor>()
+                .Property(d => d.gender)
+                .HasConversion(new EnumToStringConverter<Gender>());
+
             base.OnModelCreating(modelBuilder);
         }
     }
