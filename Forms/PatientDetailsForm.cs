@@ -13,6 +13,7 @@ using MedAppointments.Util;
 using MedAppointments.Data.Entities;
 using Microsoft.IdentityModel.Tokens;
 using System.Text.RegularExpressions;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MedAppointments
 {
@@ -32,7 +33,7 @@ namespace MedAppointments
             string surname = surnameInput.Text;
             string contactnumber = numberInput.Text;
             DateTime birthdate = birthDatePicker.Value;
-            Gender gender = Gender.Male;
+            Gender gender = (Gender)Enum.Parse(typeof(Gender), genderComboBox.SelectedItem.ToString());
 
             if (Utils.ValidatePatientInputs(name,surname,contactnumber,birthdate))
             {
