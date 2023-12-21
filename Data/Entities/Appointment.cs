@@ -28,6 +28,9 @@ namespace MedAppointments.Data.Entities
         [Column("appointmenttime")]
         public TimeSpan appointmenttime { get; set; }
 
+        [Column("createdat")]
+        public DateTime createdat { get; set; }
+        
 
         // Navigation properties
         public virtual Patient patient { get; set; }

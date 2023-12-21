@@ -37,7 +37,8 @@ namespace MedAppointments.Services
                 visitid = visit.id,
                 statusid = status.id,
                 appointmenttime = appointmentTime,
-                appointmentdate = appointmentDate.ToUniversalTime()
+                appointmentdate = appointmentDate.ToUniversalTime(),
+                createdat = DateTime.Now.ToUniversalTime()
             };
             databaseContext.appointments.Add(appointment);
 
@@ -47,10 +48,39 @@ namespace MedAppointments.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.InnerException.Message);
                 return null;
             }
             return appointment;
         }
+
+        public List<Appointment> GetAllCompletedAppointments()
+        {
+            return databaseContext.appointments
+                .Where(appointment => appointment.status.name.Equals("Completed"))
+                .ToList();
+        }
+
+        public List<Appointment> GetAllPatientsTodaysAppointments()
+        {
+            return databaseContext.appointments
+                .Where(appointment => appointment.appointmentdate.Equals(DateTime.UtcNow.Date))
+                .ToList();
+        }
+
+        public List<Appointment> GetAllCanceledAppointments()
+        {
+            return databaseContext.appointments
+                .Where(appointment => appointment.status.name.Equals("Canceled"))
+                .ToList();
+        }
+
+        public List<Appointment> GetAllTodaysScheduledAppointments()
+        {
+            return databaseContext.appointments
+                .Where(appointment => appointment.createdat.Date.Equals(DateTime.UtcNow.Date))
+                 .ToList();
+        }
+
+
     }
 }

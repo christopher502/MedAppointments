@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedAppointments.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +14,13 @@ namespace MedAppointments
 {
     public partial class MainForm : Form
     {
+        private DoctorService doctorService;
         public MainForm()
         {
             InitializeComponent();
+            this.doctorService = new DoctorService();
+            fullNameLabel.Text = doctorService.GetDoctorById(1).name +" "+ doctorService.GetDoctorById(1).surname;
+
             addUserControl(new DashboardUserControl());
         }
 

@@ -14,6 +14,9 @@ namespace MedAppointments
 {
     public partial class DashboardUserControl : UserControl
     {
+        private AppointmentService appointmentService;
+        private DoctorService doctorService;
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         public static extern IntPtr CreateRoundRectRgn
         (
@@ -27,6 +30,8 @@ namespace MedAppointments
         public DashboardUserControl()
         {
             InitializeComponent();
+            this.appointmentService = new AppointmentService();
+            this.doctorService = new DoctorService();
             welcomePanelBackground.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, welcomePanelBackground.Width, welcomePanelBackground.Height, 22, 22));
             panel1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 22, 22));
             panel2.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel2.Width, panel2.Height, 22, 22));
@@ -40,6 +45,16 @@ namespace MedAppointments
             panel10.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel10.Width, panel10.Height, 22, 22));
             addAppointmentButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, addAppointmentButton.Width, addAppointmentButton.Height, 22, 22));
 
+            drnameLabel.Text = doctorService.GetDoctorById(1).surname;
+            specialityLabel.Text = doctorService.GetDoctorById(1).speciality;
+
+            allPatientsAppointmentsLabel.Text = appointmentService.GetAllPatientsTodaysAppointments().Count().ToString();
+            todaysAppointmentsLabel.Text = appointmentService.GetAllTodaysScheduledAppointments().Count().ToString();
+            completedAppointmentsLabel.Text = appointmentService.GetAllCompletedAppointments().Count.ToString();
+            canceledAppointmentsLabel.Text = appointmentService.GetAllCanceledAppointments().Count.ToString();
+
+            DateTime today = DateTime.Today;
+            todaysDateLabel.Text = today.ToString("dd-MM-yyyy");
         }
 
         private void AddApointmentButtonClick(object sender, EventArgs e)

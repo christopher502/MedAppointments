@@ -33,7 +33,7 @@
             label12 = new Label();
             specialityLabel = new Label();
             panel1 = new Panel();
-            label11 = new Label();
+            todaysDateLabel = new Label();
             label10 = new Label();
             panel2 = new Panel();
             label2 = new Label();
@@ -118,22 +118,22 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(243, 247, 255);
-            panel1.Controls.Add(label11);
+            panel1.Controls.Add(todaysDateLabel);
             panel1.Controls.Add(label10);
             panel1.Location = new Point(728, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(405, 129);
             panel1.TabIndex = 7;
             // 
-            // label11
+            // todaysDateLabel
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Comfortaa", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(122, 54);
-            label11.Name = "label11";
-            label11.Size = new Size(161, 35);
-            label11.TabIndex = 1;
-            label11.Text = "09/06/2023";
+            todaysDateLabel.AutoSize = true;
+            todaysDateLabel.Font = new Font("Comfortaa", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            todaysDateLabel.Location = new Point(122, 54);
+            todaysDateLabel.Name = "todaysDateLabel";
+            todaysDateLabel.Size = new Size(161, 35);
+            todaysDateLabel.TabIndex = 1;
+            todaysDateLabel.Text = "09/06/2023";
             // 
             // label10
             // 
@@ -461,7 +461,7 @@
         private System.Windows.Forms.Label drnameLabel;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label specialityLabel;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label todaysDateLabel;
         private System.Windows.Forms.Label allPatientsAppointmentsLabel;
         private System.Windows.Forms.Label todaysAppointmentsLabel;
         private System.Windows.Forms.Label completedAppointmentsLabel;
