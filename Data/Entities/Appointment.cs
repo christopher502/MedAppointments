@@ -12,11 +12,22 @@ namespace MedAppointments.Data.Entities
     {
         [Key]
         public int id { get; set; }
+
+        [Column("patientid")]
         public int patientid { get; set; }
+
+        [Column("visitid")]
         public int visitid { get; set; }
+
+        [Column("statusid")]
         public int statusid { get; set; }
 
-        public DateTime date { get; set; }
+        [Column("appointmentdate")]
+        public DateTime appointmentdate { get; set; }
+
+        [Column("appointmenttime")]
+        public TimeSpan appointmenttime { get; set; }
+
 
         // Navigation properties
         public virtual Patient patient { get; set; }

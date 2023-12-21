@@ -30,5 +30,15 @@ namespace MedAppointments
             panel1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 22, 22));
             addAppointmentButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, addAppointmentButton.Width, addAppointmentButton.Height, 22, 22));
         }
+
+        private void AddAppointmentButtonClick(object sender, EventArgs e)
+        {
+            using (AppointmentDetailForm appointmentDetails = new AppointmentDetailForm())
+            {
+                appointmentDetails.StartPosition = FormStartPosition.CenterParent;
+                appointmentDetails.ShowInTaskbar = false;
+                appointmentDetails.ShowDialog();
+            }
+        }
     }
 }

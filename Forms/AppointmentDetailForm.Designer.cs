@@ -28,202 +28,203 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.datePicker = new System.Windows.Forms.DateTimePicker();
-            this.visitTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.timePicker = new System.Windows.Forms.DateTimePicker();
-            this.patientComboBox = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            statusComboBox = new ComboBox();
+            label6 = new Label();
+            datePicker = new DateTimePicker();
+            visitTypeComboBox = new ComboBox();
+            label7 = new Label();
+            cancelButton = new Button();
+            saveButton = new Button();
+            label5 = new Label();
+            timePicker = new DateTimePicker();
+            patientComboBox = new ComboBox();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.datePicker);
-            this.panel1.Controls.Add(this.visitTypeComboBox);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.cancelButton);
-            this.panel1.Controls.Add(this.saveButton);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.timePicker);
-            this.panel1.Controls.Add(this.patientComboBox);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(530, 362);
-            this.panel1.TabIndex = 2;
+            panel1.BackColor = Color.FromArgb(243, 243, 243);
+            panel1.Controls.Add(statusComboBox);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(datePicker);
+            panel1.Controls.Add(visitTypeComboBox);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(cancelButton);
+            panel1.Controls.Add(saveButton);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(timePicker);
+            panel1.Controls.Add(patientComboBox);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(530, 362);
+            panel1.TabIndex = 2;
             // 
-            // comboBox1
+            // statusComboBox
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Comfortaa", 13.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 24;
-            this.comboBox1.Location = new System.Drawing.Point(27, 231);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(226, 32);
-            this.comboBox1.Sorted = true;
-            this.comboBox1.TabIndex = 18;
+            statusComboBox.BackColor = Color.FromArgb(223, 223, 223);
+            statusComboBox.FlatStyle = FlatStyle.Flat;
+            statusComboBox.Font = new Font("Comfortaa", 13.15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            statusComboBox.FormattingEnabled = true;
+            statusComboBox.ItemHeight = 24;
+            statusComboBox.Location = new Point(27, 231);
+            statusComboBox.Name = "statusComboBox";
+            statusComboBox.Size = new Size(226, 32);
+            statusComboBox.Sorted = true;
+            statusComboBox.TabIndex = 18;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(27, 209);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 19);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Status";
+            label6.AutoSize = true;
+            label6.Font = new Font("Comfortaa", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(27, 209);
+            label6.Name = "label6";
+            label6.Size = new Size(52, 19);
+            label6.TabIndex = 17;
+            label6.Text = "Status";
             // 
             // datePicker
             // 
-            this.datePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.datePicker.Checked = false;
-            this.datePicker.Cursor = System.Windows.Forms.Cursors.No;
-            this.datePicker.Font = new System.Drawing.Font("Comfortaa", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datePicker.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.datePicker.Location = new System.Drawing.Point(27, 167);
-            this.datePicker.Name = "datePicker";
-            this.datePicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.datePicker.Size = new System.Drawing.Size(226, 31);
-            this.datePicker.TabIndex = 16;
+            datePicker.CalendarMonthBackground = Color.FromArgb(223, 223, 223);
+            datePicker.Checked = false;
+            datePicker.Font = new Font("Comfortaa", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            datePicker.Format = DateTimePickerFormat.Short;
+            datePicker.ImeMode = ImeMode.NoControl;
+            datePicker.Location = new Point(27, 167);
+            datePicker.Name = "datePicker";
+            datePicker.RightToLeft = RightToLeft.No;
+            datePicker.Size = new Size(226, 31);
+            datePicker.TabIndex = 7;
             // 
             // visitTypeComboBox
             // 
-            this.visitTypeComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.visitTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.visitTypeComboBox.Font = new System.Drawing.Font("Comfortaa", 13.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visitTypeComboBox.FormattingEnabled = true;
-            this.visitTypeComboBox.ItemHeight = 24;
-            this.visitTypeComboBox.Location = new System.Drawing.Point(273, 104);
-            this.visitTypeComboBox.Name = "visitTypeComboBox";
-            this.visitTypeComboBox.Size = new System.Drawing.Size(226, 32);
-            this.visitTypeComboBox.Sorted = true;
-            this.visitTypeComboBox.TabIndex = 15;
+            visitTypeComboBox.BackColor = Color.FromArgb(223, 223, 223);
+            visitTypeComboBox.FlatStyle = FlatStyle.Flat;
+            visitTypeComboBox.Font = new Font("Comfortaa", 13.15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            visitTypeComboBox.FormattingEnabled = true;
+            visitTypeComboBox.ItemHeight = 24;
+            visitTypeComboBox.Location = new Point(273, 104);
+            visitTypeComboBox.Name = "visitTypeComboBox";
+            visitTypeComboBox.Size = new Size(226, 32);
+            visitTypeComboBox.Sorted = true;
+            visitTypeComboBox.TabIndex = 15;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(273, 82);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 19);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Visit Type";
+            label7.AutoSize = true;
+            label7.Font = new Font("Comfortaa", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(273, 82);
+            label7.Name = "label7";
+            label7.Size = new Size(76, 19);
+            label7.TabIndex = 14;
+            label7.Text = "Visit Type";
             // 
             // cancelButton
             // 
-            this.cancelButton.FlatAppearance.BorderSize = 0;
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Font = new System.Drawing.Font("Comfortaa", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(125, 298);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 12;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
+            cancelButton.FlatAppearance.BorderSize = 0;
+            cancelButton.FlatStyle = FlatStyle.Flat;
+            cancelButton.Font = new Font("Comfortaa", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cancelButton.Location = new Point(125, 298);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(75, 23);
+            cancelButton.TabIndex = 12;
+            cancelButton.Text = "Cancel";
+            cancelButton.UseVisualStyleBackColor = true;
+            cancelButton.Click += CancelButtonClick;
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(217)))), ((int)(((byte)(189)))));
-            this.saveButton.FlatAppearance.BorderSize = 0;
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Comfortaa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(25, 287);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(94, 41);
-            this.saveButton.TabIndex = 11;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = false;
+            saveButton.BackColor = Color.FromArgb(106, 217, 189);
+            saveButton.FlatAppearance.BorderSize = 0;
+            saveButton.FlatStyle = FlatStyle.Flat;
+            saveButton.Font = new Font("Comfortaa", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            saveButton.Location = new Point(25, 287);
+            saveButton.Name = "saveButton";
+            saveButton.Size = new Size(94, 41);
+            saveButton.TabIndex = 11;
+            saveButton.Text = "Save";
+            saveButton.UseVisualStyleBackColor = false;
+            saveButton.Click += SaveButtonClick;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(273, 144);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 19);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Time";
+            label5.AutoSize = true;
+            label5.Font = new Font("Comfortaa", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(273, 144);
+            label5.Name = "label5";
+            label5.Size = new Size(43, 19);
+            label5.TabIndex = 8;
+            label5.Text = "Time";
             // 
             // timePicker
             // 
-            this.timePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.timePicker.Checked = false;
-            this.timePicker.Cursor = System.Windows.Forms.Cursors.No;
-            this.timePicker.Font = new System.Drawing.Font("Comfortaa", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.timePicker.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.timePicker.Location = new System.Drawing.Point(273, 167);
-            this.timePicker.Name = "timePicker";
-            this.timePicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.timePicker.Size = new System.Drawing.Size(226, 31);
-            this.timePicker.TabIndex = 7;
+            timePicker.CalendarMonthBackground = Color.FromArgb(223, 223, 223);
+            timePicker.Checked = false;
+            timePicker.Font = new Font("Comfortaa", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            timePicker.Format = DateTimePickerFormat.Time;
+            timePicker.ImeMode = ImeMode.NoControl;
+            timePicker.Location = new Point(273, 167);
+            timePicker.Name = "timePicker";
+            timePicker.RightToLeft = RightToLeft.No;
+            timePicker.ShowUpDown = true;
+            timePicker.Size = new Size(226, 31);
+            timePicker.TabIndex = 7;
             // 
             // patientComboBox
             // 
-            this.patientComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.patientComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.patientComboBox.Font = new System.Drawing.Font("Comfortaa", 13.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientComboBox.FormattingEnabled = true;
-            this.patientComboBox.ItemHeight = 24;
-            this.patientComboBox.Location = new System.Drawing.Point(27, 104);
-            this.patientComboBox.Name = "patientComboBox";
-            this.patientComboBox.Size = new System.Drawing.Size(226, 32);
-            this.patientComboBox.Sorted = true;
-            this.patientComboBox.TabIndex = 5;
+            patientComboBox.BackColor = Color.FromArgb(223, 223, 223);
+            patientComboBox.FlatStyle = FlatStyle.Flat;
+            patientComboBox.Font = new Font("Comfortaa", 13.15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            patientComboBox.FormattingEnabled = true;
+            patientComboBox.ItemHeight = 24;
+            patientComboBox.Location = new Point(27, 104);
+            patientComboBox.Name = "patientComboBox";
+            patientComboBox.Size = new Size(226, 32);
+            patientComboBox.Sorted = true;
+            patientComboBox.TabIndex = 5;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(27, 144);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 19);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Date";
+            label3.AutoSize = true;
+            label3.Font = new Font("Comfortaa", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(27, 144);
+            label3.Name = "label3";
+            label3.Size = new Size(42, 19);
+            label3.TabIndex = 4;
+            label3.Text = "Date";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Comfortaa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 82);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 19);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Patient";
+            label2.AutoSize = true;
+            label2.Font = new Font("Comfortaa", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(27, 82);
+            label2.Name = "label2";
+            label2.Size = new Size(57, 19);
+            label2.TabIndex = 3;
+            label2.Text = "Patient";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Comfortaa", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Appointment Details";
+            label1.AutoSize = true;
+            label1.Font = new Font("Comfortaa", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(25, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(250, 31);
+            label1.TabIndex = 0;
+            label1.Text = "Appointment Details";
             // 
             // AppointmentDetailForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(530, 362);
+            ClientSize = new Size(530, 362);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
@@ -248,7 +249,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker datePicker;
         private System.Windows.Forms.ComboBox visitTypeComboBox;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox statusComboBox;
         private System.Windows.Forms.Label label6;
     }
 }

@@ -393,7 +393,7 @@
             addAppointmentButton.TabIndex = 0;
             addAppointmentButton.Text = "Add appointment   +";
             addAppointmentButton.UseVisualStyleBackColor = false;
-            addAppointmentButton.Click += addAppointmentButton_Click;
+            addAppointmentButton.Click += AddApointmentButtonClick;
             // 
             // DashboardUserControl
             // 

@@ -15,5 +15,10 @@ namespace MedAppointments.Data.Entities
         public int id { get; set; }
         public string name { get; set; }
         public ICollection<Appointment> appointments { get; set; }
+
+        public override string ToString()
+        {
+            return $"{name}";
+        }
     }
 }

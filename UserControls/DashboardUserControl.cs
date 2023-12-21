@@ -42,10 +42,14 @@ namespace MedAppointments
 
         }
 
-        private void addAppointmentButton_Click(object sender, EventArgs e)
+        private void AddApointmentButtonClick(object sender, EventArgs e)
         {
-            AppointmentService appointmentService = new AppointmentService();
-            appointmentService.GetAllAppointments();
+            using (AppointmentDetailForm appointmentDetails = new AppointmentDetailForm())
+            {
+                appointmentDetails.StartPosition = FormStartPosition.CenterParent;
+                appointmentDetails.ShowInTaskbar = false;
+                appointmentDetails.ShowDialog();
+            }
         }
     }
 }

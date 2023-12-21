@@ -9,6 +9,7 @@ using Org.BouncyCastle.Asn1.X509;
 using MedAppointments.Enums;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MedAppointments.Data.Entities;
+using Microsoft.Extensions.Logging;
 
 namespace MedAppointments.Data.DatabaseContext
 {

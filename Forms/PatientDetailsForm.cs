@@ -14,6 +14,7 @@ using MedAppointments.Data.Entities;
 using Microsoft.IdentityModel.Tokens;
 using System.Text.RegularExpressions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MedAppointments
 {
