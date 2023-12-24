@@ -1,30 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MedAppointments.Enums;
+﻿using MedAppointments.Enums;
 using MedAppointments.Services;
 using MedAppointments.Util;
 using MedAppointments.Data.Entities;
-using Microsoft.IdentityModel.Tokens;
-using System.Text.RegularExpressions;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MedAppointments
 {
     public partial class PatientDetailsForm : Form
     {
         private PatientService patientService;
-        public PatientDetailsForm()
+        private UserControl userControl;
+
+        public PatientDetailsForm(UserControl userControl)
         {
             InitializeComponent();
             this.patientService = new PatientService();
+            this.userControl = userControl;
             genderComboBox.DataSource = Enum.GetValues(typeof(Gender));
         }
 
@@ -46,6 +36,8 @@ namespace MedAppointments
                 this.Close();
                 MessageBox.Show(notification);
             }
+
+            ((PatientUserControl)userControl).InitializeGridContent();
         }
 
         private void CancelButtonClick(object sender, EventArgs e)

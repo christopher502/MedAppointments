@@ -41,6 +41,7 @@ namespace MedAppointments
             headerLine = new Panel();
             panelContainer = new Panel();
             mainContainer = new Panel();
+            mainContainer.SuspendLayout();
             SuspendLayout();
             // 
             // panel12
@@ -138,14 +139,15 @@ namespace MedAppointments
             // 
             // panelContainer
             // 
-            panelContainer.Location = new Point(36, 82);
+            panelContainer.Location = new Point(36, 91);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1130, 717);
+            panelContainer.Size = new Size(1130, 706);
             panelContainer.TabIndex = 25;
             // 
             // mainContainer
             // 
             mainContainer.BackColor = Color.Transparent;
+            mainContainer.Controls.Add(panelContainer);
             mainContainer.Location = new Point(0, 0);
             mainContainer.Name = "mainContainer";
             mainContainer.Size = new Size(1206, 850);
@@ -157,7 +159,6 @@ namespace MedAppointments
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(1202, 811);
-            Controls.Add(panelContainer);
             Controls.Add(headerLine);
             Controls.Add(panel12);
             Controls.Add(fullNameLabel);
@@ -172,6 +173,7 @@ namespace MedAppointments
             Margin = new Padding(5, 3, 5, 3);
             Name = "MainForm";
             Text = "MedAppointments";
+            mainContainer.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }

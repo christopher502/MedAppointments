@@ -1,4 +1,5 @@
-﻿using MedAppointments.Services;
+﻿using MedAppointments.Data.Entities;
+using MedAppointments.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,6 +56,17 @@ namespace MedAppointments
 
             DateTime today = DateTime.Today;
             todaysDateLabel.Text = today.ToString("dd-MM-yyyy");
+
+            DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
+            editButton.HeaderText = "Action";
+            editButton.Width = 90;
+            editButton.Text = "Edit";
+            editButton.UseColumnTextForButtonValue = true;
+
+            appointmentsGridView.Columns.Add(editButton);
+            appointmentsGridView.CellContentClick += ActionButtonsClick;
+
+            InitializeGridContent();
         }
 
         private void AddApointmentButtonClick(object sender, EventArgs e)
@@ -65,6 +77,53 @@ namespace MedAppointments
                 appointmentDetails.ShowInTaskbar = false;
                 appointmentDetails.ShowDialog();
             }
+        }
+
+        public void InitializeGridContent()
+        {
+            appointmentsGridView.Rows.Clear();
+
+            appointmentsGridView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            List<Appointment> apointmentList = appointmentService.GetAllAppointments();
+
+            int x = 0;
+            foreach (Appointment a in apointmentList)
+            {
+                int rowIndex = appointmentsGridView.Rows.Add();
+
+                DataGridViewRow gridRow = appointmentsGridView.Rows[rowIndex];
+                gridRow.HeaderCell.Value = a.id;
+                gridRow.Cells[0].Value = x++;
+                gridRow.Cells[1].Value = a.patient.name + " " + a.patient.surname;
+                gridRow.Cells[2].Value = a.visit.name;
+                gridRow.Cells[3].Value = a.appointmentdate.ToString("dd-MM-yyyy");
+                gridRow.Cells[4].Value = a.appointmenttime.ToString("hh\\:mm");
+                gridRow.Cells[5].Value = a.patient.contactnumber;
+            }
+
+            appointmentsGridView.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.TopLeft;
+            SetRowCellHeight(70);
+
+            appointmentsGridView.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
+        }
+
+        private void SetRowCellHeight(int cellHeight)
+        {
+            foreach (DataGridViewRow row in appointmentsGridView.Rows)
+            {
+                row.Height = cellHeight;
+
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    cell.Style.Padding = new Padding(0, 0, 0, 0);
+                    cell.Style.Padding = new Padding(0, 0, 0, cellHeight - appointmentsGridView.RowTemplate.Height);
+                }
+            }
+        }
+
+        private void ActionButtonsClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

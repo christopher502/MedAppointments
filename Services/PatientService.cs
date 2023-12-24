@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MedAppointments.Enums;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using MedAppointments.Enums;
 using MedAppointments.Data.DatabaseContext;
 using MedAppointments.Data.Entities;
 
