@@ -92,7 +92,6 @@
             // datePicker
             // 
             datePicker.CalendarMonthBackground = Color.FromArgb(223, 223, 223);
-            datePicker.Checked = false;
             datePicker.Font = new Font("Comfortaa", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             datePicker.Format = DateTimePickerFormat.Short;
             datePicker.ImeMode = ImeMode.NoControl;
@@ -136,6 +135,7 @@
             cancelButton.TabIndex = 12;
             cancelButton.Text = "Cancel";
             cancelButton.UseVisualStyleBackColor = true;
+            cancelButton.Click += cancelButton_Click;
             // 
             // saveButton
             // 
@@ -163,7 +163,6 @@
             // timePicker
             // 
             timePicker.CalendarMonthBackground = Color.FromArgb(223, 223, 223);
-            timePicker.Checked = false;
             timePicker.Font = new Font("Comfortaa", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             timePicker.Format = DateTimePickerFormat.Time;
             timePicker.ImeMode = ImeMode.NoControl;

@@ -1,4 +1,5 @@
 ﻿using MedAppointments.Data.Entities;
+using MedAppointments.Forms;
 using MedAppointments.Services;
 using System;
 using System.Collections.Generic;
@@ -129,7 +130,13 @@ namespace MedAppointments
         private void ActionButtonsClick(object sender, DataGridViewCellEventArgs e)
         {
             object rowHeader = appointmentsGridView.Rows[e.RowIndex].HeaderCell.Value;
-            MessageBox.Show($"Button clicked in row {e.RowIndex}, Row Header: {rowHeader}");
+
+            using (EditAppointmentForm editAppointmentForm = new EditAppointmentForm((int)rowHeader))
+            {
+                editAppointmentForm.StartPosition = FormStartPosition.CenterParent;
+                editAppointmentForm.ShowInTaskbar = false;
+                editAppointmentForm.ShowDialog();
+            }
         }
     }
 }

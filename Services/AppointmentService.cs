@@ -81,6 +81,11 @@ namespace MedAppointments.Services
                  .ToList();
         }
 
+        public Appointment GetAppointmentById(int id)
+        {
+            return databaseContext.appointments.Find(id);
+        }
+
 
     }
 }

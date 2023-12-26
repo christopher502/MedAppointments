@@ -17,6 +17,11 @@ namespace MedAppointments.Services
             return databaseContext.patients.ToList();
         }
 
+        public Patient GetPatientById(int id)
+        {
+            return databaseContext.patients.Find(id);
+        }
+
 
         public Patient? AddPatient(string name, string surname, string contactnumber, Gender gender, DateTime birthdate)
         {
