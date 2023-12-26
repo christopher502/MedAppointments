@@ -1,6 +1,7 @@
 ﻿using MedAppointments.Data.Entities;
 using MedAppointments.Enums;
 using MedAppointments.Services;
+using MedAppointments.Util;
 using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
@@ -39,8 +40,7 @@ namespace MedAppointments
             addAppointmentButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, addAppointmentButton.Width, addAppointmentButton.Height, 22, 22));
 
             DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
-            editButton.HeaderText = "Action";
-            editButton.Width = 90;
+            editButton.Width = 120;
             editButton.Text = "Edit";
             editButton.UseColumnTextForButtonValue = true;
 
@@ -83,7 +83,7 @@ namespace MedAppointments
             }
 
             appointmentsGridView.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.TopLeft;
-            SetRowCellHeight(70);
+            SetRowCellHeight(40);
 
             appointmentsGridView.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
         }

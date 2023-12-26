@@ -61,8 +61,6 @@
             label8 = new Label();
             label7 = new Label();
             panel10 = new Panel();
-            label9 = new Label();
-            addAppointmentButton = new Button();
             appointmentsGridView = new DataGridView();
             patientId = new DataGridViewTextBoxColumn();
             patientName = new DataGridViewTextBoxColumn();
@@ -70,6 +68,8 @@
             date = new DataGridViewTextBoxColumn();
             time = new DataGridViewTextBoxColumn();
             contactNumber = new DataGridViewTextBoxColumn();
+            label9 = new Label();
+            addAppointmentButton = new Button();
             welcomePanelBackground.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -385,30 +385,6 @@
             panel10.Size = new Size(1130, 470);
             panel10.TabIndex = 12;
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Comfortaa", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(14, 23);
-            label9.Name = "label9";
-            label9.Size = new Size(191, 21);
-            label9.TabIndex = 1;
-            label9.Text = "Today's appointments";
-            // 
-            // addAppointmentButton
-            // 
-            addAppointmentButton.BackColor = Color.Gainsboro;
-            addAppointmentButton.FlatAppearance.BorderSize = 0;
-            addAppointmentButton.FlatStyle = FlatStyle.Flat;
-            addAppointmentButton.Font = new Font("Comfortaa", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addAppointmentButton.Location = new Point(952, 17);
-            addAppointmentButton.Name = "addAppointmentButton";
-            addAppointmentButton.Size = new Size(163, 37);
-            addAppointmentButton.TabIndex = 0;
-            addAppointmentButton.Text = "Add appointment   +";
-            addAppointmentButton.UseVisualStyleBackColor = false;
-            addAppointmentButton.Click += AddApointmentButtonClick;
-            // 
             // appointmentsGridView
             // 
             appointmentsGridView.AllowUserToAddRows = false;
@@ -421,8 +397,7 @@
             appointmentsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             appointmentsGridView.BackgroundColor = Color.FromArgb(248, 248, 248);
             appointmentsGridView.BorderStyle = BorderStyle.None;
-            appointmentsGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            appointmentsGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            appointmentsGridView.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(248, 248, 248);
             dataGridViewCellStyle2.Font = new Font("Comfortaa", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -505,6 +480,30 @@
             contactNumber.Name = "contactNumber";
             contactNumber.ReadOnly = true;
             contactNumber.Width = 158;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Comfortaa", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(14, 23);
+            label9.Name = "label9";
+            label9.Size = new Size(191, 21);
+            label9.TabIndex = 1;
+            label9.Text = "Today's appointments";
+            // 
+            // addAppointmentButton
+            // 
+            addAppointmentButton.BackColor = Color.Gainsboro;
+            addAppointmentButton.FlatAppearance.BorderSize = 0;
+            addAppointmentButton.FlatStyle = FlatStyle.Flat;
+            addAppointmentButton.Font = new Font("Comfortaa", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            addAppointmentButton.Location = new Point(952, 17);
+            addAppointmentButton.Name = "addAppointmentButton";
+            addAppointmentButton.Size = new Size(163, 37);
+            addAppointmentButton.TabIndex = 0;
+            addAppointmentButton.Text = "Add appointment   +";
+            addAppointmentButton.UseVisualStyleBackColor = false;
+            addAppointmentButton.Click += AddApointmentButtonClick;
             // 
             // DashboardUserControl
             // 

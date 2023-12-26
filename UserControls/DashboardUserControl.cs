@@ -57,14 +57,19 @@ namespace MedAppointments
             DateTime today = DateTime.Today;
             todaysDateLabel.Text = today.ToString("dd-MM-yyyy");
 
-            DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
-            editButton.HeaderText = "Action";
-            editButton.Width = 90;
-            editButton.Text = "Edit";
-            editButton.UseColumnTextForButtonValue = true;
+            DataGridViewButtonColumn editColumn = new DataGridViewButtonColumn();
+            editColumn.Width = 150;
+            editColumn.Text = "Edit";
+            editColumn.UseColumnTextForButtonValue = true;
 
-            appointmentsGridView.Columns.Add(editButton);
+            editColumn.DefaultCellStyle.Padding = new Padding((editColumn.Width - 50) / 2, 0, (editColumn.Width - 50) / 2, 0);
+
+            appointmentsGridView.Columns.Add(editColumn);
             appointmentsGridView.CellContentClick += ActionButtonsClick;
+
+
+            appointmentsGridView.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
 
             InitializeGridContent();
         }
@@ -102,7 +107,7 @@ namespace MedAppointments
             }
 
             appointmentsGridView.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.TopLeft;
-            SetRowCellHeight(70);
+            SetRowCellHeight(40);
 
             appointmentsGridView.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
         }
@@ -123,7 +128,8 @@ namespace MedAppointments
 
         private void ActionButtonsClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            object rowHeader = appointmentsGridView.Rows[e.RowIndex].HeaderCell.Value;
+            MessageBox.Show($"Button clicked in row {e.RowIndex}, Row Header: {rowHeader}");
         }
     }
 }
