@@ -1,18 +1,9 @@
 ﻿using MedAppointments.Data.Entities;
-using MedAppointments.Enums;
 using MedAppointments.Services;
 using MedAppointments.Util;
-using MySqlX.XDevAPI.Relational;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace MedAppointments
 {
@@ -20,6 +11,7 @@ namespace MedAppointments
     {
         private AppointmentService appointmentService;
         private StatusService statusService;
+        private CustomDataGridView customDataGridView;
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         public static extern IntPtr CreateRoundRectRgn
@@ -39,40 +31,25 @@ namespace MedAppointments
             panel1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 22, 22));
             addAppointmentButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, addAppointmentButton.Width, addAppointmentButton.Height, 22, 22));
 
-            DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
-            editButton.Width = 120;
-            editButton.Text = "Edit";
-            editButton.UseColumnTextForButtonValue = true;
+            customDataGridView = new CustomDataGridView(13, 74, 1105, 621);
+            panel1.Controls.Add(customDataGridView);
 
-            appointmentsGridView.Columns.Add(editButton);
-            appointmentsGridView.CellContentClick += ActionButtonsClick;
-
-            InitializeGridContent();
-        }
-
-        private void AddAppointmentButtonClick(object sender, EventArgs e)
-        {
-            using (AppointmentDetailForm appointmentDetails = new AppointmentDetailForm())
-            {
-                appointmentDetails.StartPosition = FormStartPosition.CenterParent;
-                appointmentDetails.ShowInTaskbar = false;
-                appointmentDetails.ShowDialog();
-            }
+            customDataGridView.InitializeGridContent();
         }
 
         public void InitializeGridContent()
         {
-            appointmentsGridView.Rows.Clear();
+            customDataGridView.Rows.Clear();
 
-            appointmentsGridView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            customDataGridView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             List<Appointment> apointmentList = appointmentService.GetAllAppointments();
 
             int x = 0;
             foreach (Appointment a in apointmentList)
             {
-                int rowIndex = appointmentsGridView.Rows.Add();
+                int rowIndex = customDataGridView.Rows.Add();
 
-                DataGridViewRow gridRow = appointmentsGridView.Rows[rowIndex];
+                DataGridViewRow gridRow = customDataGridView.Rows[rowIndex];
                 gridRow.HeaderCell.Value = a.id;
                 gridRow.Cells[0].Value = x++;
                 gridRow.Cells[1].Value = a.patient.name + " " + a.patient.surname;
@@ -82,29 +59,16 @@ namespace MedAppointments
                 gridRow.Cells[5].Value = a.patient.contactnumber;
             }
 
-            appointmentsGridView.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.TopLeft;
-            SetRowCellHeight(40);
-
-            appointmentsGridView.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
         }
 
-        private void SetRowCellHeight(int cellHeight)
+        private void AddAppointmentButtonClick(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in appointmentsGridView.Rows)
+            using (AppointmentDetailForm appointmentDetails = new AppointmentDetailForm(customDataGridView))
             {
-                row.Height = cellHeight;
-
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    cell.Style.Padding = new Padding(0, 0, 0, 0);
-                    cell.Style.Padding = new Padding(0, 0, 0, cellHeight - appointmentsGridView.RowTemplate.Height);
-                }
+                appointmentDetails.StartPosition = FormStartPosition.CenterParent;
+                appointmentDetails.ShowInTaskbar = false;
+                appointmentDetails.ShowDialog();
             }
-        }
-
-        private void ActionButtonsClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

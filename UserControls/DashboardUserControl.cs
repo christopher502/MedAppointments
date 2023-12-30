@@ -60,59 +60,19 @@ namespace MedAppointments
             DateTime today = DateTime.Today;
             todaysDateLabel.Text = today.ToString("dd-MM-yyyy");
 
-
-
-
             customDataGridView = new CustomDataGridView(12,73,1100,390);
             panel10.Controls.Add(customDataGridView);
-            InitializeGridContent();
+
+            customDataGridView.InitializeGridContent();
         }
 
         private void AddApointmentButtonClick(object sender, EventArgs e)
         {
-            using (AppointmentDetailForm appointmentDetails = new AppointmentDetailForm())
+            using (AppointmentDetailForm appointmentDetails = new AppointmentDetailForm(customDataGridView))
             {
                 appointmentDetails.StartPosition = FormStartPosition.CenterParent;
                 appointmentDetails.ShowInTaskbar = false;
                 appointmentDetails.ShowDialog();
-            }
-        }
-
-        public void InitializeGridContent()
-        {
-            customDataGridView.Rows.Clear();
-
-            List<Appointment> apointmentList = appointmentService.GetAllAppointments();
-
-            int x = 0;
-            foreach (Appointment a in apointmentList)
-            {
-                int rowIndex = customDataGridView.Rows.Add();
-
-                DataGridViewRow gridRow = customDataGridView.Rows[rowIndex];
-                gridRow.HeaderCell.Value = a.id;
-                gridRow.Cells[0].Value = x++;
-                gridRow.Cells[1].Value = a.patient.name + " " + a.patient.surname;
-                gridRow.Cells[2].Value = a.visit.name;
-                gridRow.Cells[3].Value = a.appointmentdate.ToString("dd-MM-yyyy");
-                gridRow.Cells[4].Value = a.appointmenttime.ToString("hh\\:mm");
-                gridRow.Cells[5].Value = a.patient.contactnumber;
-            }
-
-            SetRowCellHeight(40);
-        }
-
-        private void SetRowCellHeight(int cellHeight)
-        {
-            foreach (DataGridViewRow row in customDataGridView.Rows)
-            {
-                row.Height = cellHeight;
-
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    cell.Style.Padding = new Padding(0, 0, 0, 0);
-                    cell.Style.Padding = new Padding(0, 0, 0, cellHeight - customDataGridView.RowTemplate.Height);
-                }
             }
         }
     }

@@ -1,16 +1,5 @@
 ﻿using MedAppointments.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using MedAppointments.Data.Entities;
-using MedAppointments.Data.DatabaseContext;
-using MedAppointments.Enums;
 using MedAppointments.Util;
 
 namespace MedAppointments
@@ -21,14 +10,16 @@ namespace MedAppointments
         private PatientService patientService;
         private VisitService visitService;
         private StatusService statusService;
+        private CustomDataGridView customDataGridView;
 
-        public AppointmentDetailForm()
+        public AppointmentDetailForm(CustomDataGridView customDataGridView)
         {
             InitializeComponent();
             this.appointmentService = new AppointmentService();
             this.patientService = new PatientService();
             this.visitService = new VisitService();
             this.statusService = new StatusService();
+            this.customDataGridView = customDataGridView;
 
             this.patientComboBox.DataSource = patientService.GetAllPatients();
             this.patientComboBox.SelectedIndex = -1;
@@ -61,6 +52,7 @@ namespace MedAppointments
                 this.Close();
                 MessageBox.Show(notification);
             }
+            customDataGridView.InitializeGridContent();
         }
 
         private void CancelButtonClick(object sender, EventArgs e)
