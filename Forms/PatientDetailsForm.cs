@@ -31,7 +31,7 @@ namespace MedAppointments
                 Patient? patient = patientService.AddPatient(name, surname, contactnumber, gender, birthdate);
                 
                 string notification = (patient == null) ? "Could not add new patient due to database issues. Please try again later or contact the administrator!" 
-                    : "Patinet '" + patient.name + " " + patient.surname + "' was successfully added.";
+                    : "Patient '" + patient.name + " " + patient.surname + "' was successfully added.";
 
                 this.Close();
                 MessageBox.Show(notification);

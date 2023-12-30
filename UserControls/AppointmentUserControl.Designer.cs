@@ -35,14 +35,14 @@
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             panel1 = new Panel();
             appointmentsGridView = new DataGridView();
-            label1 = new Label();
-            addAppointmentButton = new Button();
             patientId = new DataGridViewTextBoxColumn();
             patientName = new DataGridViewTextBoxColumn();
             visitType = new DataGridViewTextBoxColumn();
             date = new DataGridViewTextBoxColumn();
             time = new DataGridViewTextBoxColumn();
             contactNumber = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            addAppointmentButton = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)appointmentsGridView).BeginInit();
             SuspendLayout();
@@ -74,7 +74,7 @@
             appointmentsGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(248, 248, 248);
-            dataGridViewCellStyle2.Font = new Font("Comfortaa", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(248, 248, 248);
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
@@ -85,7 +85,7 @@
             appointmentsGridView.Columns.AddRange(new DataGridViewColumn[] { patientId, patientName, visitType, date, time, contactNumber });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.LightGray;
-            dataGridViewCellStyle3.Font = new Font("Comfortaa", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = Color.LightGray;
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
@@ -99,7 +99,7 @@
             appointmentsGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = Color.FromArgb(248, 248, 248);
-            dataGridViewCellStyle4.Font = new Font("Comfortaa", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(248, 248, 248);
             dataGridViewCellStyle4.SelectionForeColor = Color.Black;
@@ -113,30 +113,6 @@
             appointmentsGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             appointmentsGridView.Size = new Size(1107, 621);
             appointmentsGridView.TabIndex = 6;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Comfortaa", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(13, 14);
-            label1.Name = "label1";
-            label1.Size = new Size(210, 31);
-            label1.TabIndex = 2;
-            label1.Text = "All appointments";
-            // 
-            // addAppointmentButton
-            // 
-            addAppointmentButton.BackColor = Color.Gainsboro;
-            addAppointmentButton.FlatAppearance.BorderSize = 0;
-            addAppointmentButton.FlatStyle = FlatStyle.Flat;
-            addAppointmentButton.Font = new Font("Comfortaa", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addAppointmentButton.Location = new Point(957, 16);
-            addAppointmentButton.Name = "addAppointmentButton";
-            addAppointmentButton.Size = new Size(163, 37);
-            addAppointmentButton.TabIndex = 1;
-            addAppointmentButton.Text = "Add appointment   +";
-            addAppointmentButton.UseVisualStyleBackColor = false;
-            addAppointmentButton.Click += AddAppointmentButtonClick;
             // 
             // patientId
             // 
@@ -178,6 +154,30 @@
             contactNumber.Name = "contactNumber";
             contactNumber.ReadOnly = true;
             contactNumber.Width = 158;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(13, 14);
+            label1.Name = "label1";
+            label1.Size = new Size(207, 29);
+            label1.TabIndex = 2;
+            label1.Text = "All appointments";
+            // 
+            // addAppointmentButton
+            // 
+            addAppointmentButton.BackColor = Color.Gainsboro;
+            addAppointmentButton.FlatAppearance.BorderSize = 0;
+            addAppointmentButton.FlatStyle = FlatStyle.Flat;
+            addAppointmentButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            addAppointmentButton.Location = new Point(957, 16);
+            addAppointmentButton.Name = "addAppointmentButton";
+            addAppointmentButton.Size = new Size(163, 37);
+            addAppointmentButton.TabIndex = 1;
+            addAppointmentButton.Text = "Add appointment   +";
+            addAppointmentButton.UseVisualStyleBackColor = false;
+            addAppointmentButton.Click += AddAppointmentButtonClick;
             // 
             // AppointmentUserControl
             // 

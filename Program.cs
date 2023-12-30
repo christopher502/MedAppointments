@@ -1,3 +1,5 @@
+using MedAppointments.Forms;
+
 namespace MedAppointments
 {
     internal static class Program

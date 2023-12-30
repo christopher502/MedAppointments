@@ -1,13 +1,6 @@
 ﻿using MedAppointments.Data.DatabaseContext;
 using MedAppointments.Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Npgsql;
-using NpgsqlTypes;
 
 namespace MedAppointments.Services
 {

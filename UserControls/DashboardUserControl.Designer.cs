@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             welcomePanelBackground = new Panel();
             drnameLabel = new Label();
             label12 = new Label();
@@ -61,13 +56,6 @@
             label8 = new Label();
             label7 = new Label();
             panel10 = new Panel();
-            appointmentsGridView = new DataGridView();
-            patientId = new DataGridViewTextBoxColumn();
-            patientName = new DataGridViewTextBoxColumn();
-            visitType = new DataGridViewTextBoxColumn();
-            date = new DataGridViewTextBoxColumn();
-            time = new DataGridViewTextBoxColumn();
-            contactNumber = new DataGridViewTextBoxColumn();
             label9 = new Label();
             addAppointmentButton = new Button();
             welcomePanelBackground.SuspendLayout();
@@ -81,7 +69,6 @@
             panel5.SuspendLayout();
             panel9.SuspendLayout();
             panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)appointmentsGridView).BeginInit();
             SuspendLayout();
             // 
             // welcomePanelBackground
@@ -99,10 +86,10 @@
             // 
             drnameLabel.AutoSize = true;
             drnameLabel.BackColor = Color.FromArgb(243, 247, 255);
-            drnameLabel.Font = new Font("Comfortaa", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            drnameLabel.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             drnameLabel.Location = new Point(369, 13);
             drnameLabel.Name = "drnameLabel";
-            drnameLabel.Size = new Size(145, 37);
+            drnameLabel.Size = new Size(140, 33);
             drnameLabel.TabIndex = 2;
             drnameLabel.Text = "Dr. Name";
             // 
@@ -110,10 +97,10 @@
             // 
             label12.AutoSize = true;
             label12.BackColor = Color.FromArgb(243, 247, 255);
-            label12.Font = new Font("Comfortaa", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label12.Location = new Point(142, 13);
             label12.Name = "label12";
-            label12.Size = new Size(229, 37);
+            label12.Size = new Size(228, 33);
             label12.TabIndex = 1;
             label12.Text = "Welcome back,";
             // 
@@ -121,10 +108,10 @@
             // 
             specialityLabel.AutoSize = true;
             specialityLabel.BackColor = Color.FromArgb(243, 247, 255);
-            specialityLabel.Font = new Font("Comfortaa", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            specialityLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             specialityLabel.Location = new Point(144, 54);
             specialityLabel.Name = "specialityLabel";
-            specialityLabel.Size = new Size(85, 21);
+            specialityLabel.Size = new Size(76, 20);
             specialityLabel.TabIndex = 0;
             specialityLabel.Text = "Speciality";
             // 
@@ -141,20 +128,20 @@
             // todaysDateLabel
             // 
             todaysDateLabel.AutoSize = true;
-            todaysDateLabel.Font = new Font("Comfortaa", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            todaysDateLabel.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             todaysDateLabel.Location = new Point(122, 54);
             todaysDateLabel.Name = "todaysDateLabel";
-            todaysDateLabel.Size = new Size(161, 35);
+            todaysDateLabel.Size = new Size(160, 31);
             todaysDateLabel.TabIndex = 1;
             todaysDateLabel.Text = "09/06/2023";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Comfortaa", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.Location = new Point(157, 29);
             label10.Name = "label10";
-            label10.Size = new Size(91, 25);
+            label10.Size = new Size(81, 24);
             label10.TabIndex = 0;
             label10.Text = "Today is";
             // 
@@ -173,10 +160,10 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.FromArgb(248, 248, 248);
-            label2.Font = new Font("Comfortaa", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.Location = new Point(82, 39);
             label2.Name = "label2";
-            label2.Size = new Size(156, 18);
+            label2.Size = new Size(141, 16);
             label2.TabIndex = 17;
             label2.Text = "Today's appointments";
             // 
@@ -192,11 +179,11 @@
             // allPatientsAppointmentsLabel
             // 
             allPatientsAppointmentsLabel.AutoSize = true;
-            allPatientsAppointmentsLabel.Font = new Font("Comfortaa", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            allPatientsAppointmentsLabel.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             allPatientsAppointmentsLabel.ForeColor = Color.FromArgb(47, 208, 205);
             allPatientsAppointmentsLabel.Location = new Point(18, 12);
             allPatientsAppointmentsLabel.Name = "allPatientsAppointmentsLabel";
-            allPatientsAppointmentsLabel.Size = new Size(33, 37);
+            allPatientsAppointmentsLabel.Size = new Size(32, 33);
             allPatientsAppointmentsLabel.TabIndex = 2;
             allPatientsAppointmentsLabel.Text = "0";
             // 
@@ -204,11 +191,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.FromArgb(248, 248, 248);
-            label1.Font = new Font("Comfortaa", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(47, 208, 205);
             label1.Location = new Point(82, 16);
             label1.Name = "label1";
-            label1.Size = new Size(106, 22);
+            label1.Size = new Size(104, 20);
             label1.TabIndex = 16;
             label1.Text = "All patients";
             // 
@@ -227,10 +214,10 @@
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.FromArgb(248, 248, 248);
-            label4.Font = new Font("Comfortaa", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.Location = new Point(85, 39);
             label4.Name = "label4";
-            label4.Size = new Size(100, 18);
+            label4.Size = new Size(89, 16);
             label4.TabIndex = 18;
             label4.Text = "Appointments";
             // 
@@ -238,11 +225,11 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.FromArgb(248, 248, 248);
-            label3.Font = new Font("Comfortaa", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(122, 50, 255);
             label3.Location = new Point(84, 16);
             label3.Name = "label3";
-            label3.Size = new Size(72, 22);
+            label3.Size = new Size(69, 20);
             label3.TabIndex = 18;
             label3.Text = "Todays";
             // 
@@ -258,11 +245,11 @@
             // todaysAppointmentsLabel
             // 
             todaysAppointmentsLabel.AutoSize = true;
-            todaysAppointmentsLabel.Font = new Font("Comfortaa", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            todaysAppointmentsLabel.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             todaysAppointmentsLabel.ForeColor = Color.FromArgb(122, 50, 255);
             todaysAppointmentsLabel.Location = new Point(18, 12);
             todaysAppointmentsLabel.Name = "todaysAppointmentsLabel";
-            todaysAppointmentsLabel.Size = new Size(33, 37);
+            todaysAppointmentsLabel.Size = new Size(32, 33);
             todaysAppointmentsLabel.TabIndex = 3;
             todaysAppointmentsLabel.Text = "0";
             // 
@@ -281,10 +268,10 @@
             // 
             label6.AutoSize = true;
             label6.BackColor = Color.FromArgb(248, 248, 248);
-            label6.Font = new Font("Comfortaa", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.Location = new Point(85, 39);
             label6.Name = "label6";
-            label6.Size = new Size(140, 18);
+            label6.Size = new Size(121, 16);
             label6.TabIndex = 19;
             label6.Text = "Of all appointments";
             // 
@@ -300,11 +287,11 @@
             // completedAppointmentsLabel
             // 
             completedAppointmentsLabel.AutoSize = true;
-            completedAppointmentsLabel.Font = new Font("Comfortaa", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            completedAppointmentsLabel.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             completedAppointmentsLabel.ForeColor = Color.FromArgb(3, 191, 102);
             completedAppointmentsLabel.Location = new Point(17, 13);
             completedAppointmentsLabel.Name = "completedAppointmentsLabel";
-            completedAppointmentsLabel.Size = new Size(33, 37);
+            completedAppointmentsLabel.Size = new Size(32, 33);
             completedAppointmentsLabel.TabIndex = 4;
             completedAppointmentsLabel.Text = "0";
             // 
@@ -312,11 +299,11 @@
             // 
             label5.AutoSize = true;
             label5.BackColor = Color.FromArgb(248, 248, 248);
-            label5.Font = new Font("Comfortaa", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Font = new Font("Microsoft Sans Serif", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(3, 191, 102);
             label5.Location = new Point(84, 16);
             label5.Name = "label5";
-            label5.Size = new Size(103, 22);
+            label5.Size = new Size(98, 20);
             label5.TabIndex = 19;
             label5.Text = "Completed";
             // 
@@ -343,11 +330,11 @@
             // canceledAppointmentsLabel
             // 
             canceledAppointmentsLabel.AutoSize = true;
-            canceledAppointmentsLabel.Font = new Font("Comfortaa", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            canceledAppointmentsLabel.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             canceledAppointmentsLabel.ForeColor = Color.FromArgb(221, 24, 24);
             canceledAppointmentsLabel.Location = new Point(18, 12);
             canceledAppointmentsLabel.Name = "canceledAppointmentsLabel";
-            canceledAppointmentsLabel.Size = new Size(33, 37);
+            canceledAppointmentsLabel.Size = new Size(32, 33);
             canceledAppointmentsLabel.TabIndex = 5;
             canceledAppointmentsLabel.Text = "0";
             // 
@@ -355,10 +342,10 @@
             // 
             label8.AutoSize = true;
             label8.BackColor = Color.FromArgb(248, 248, 248);
-            label8.Font = new Font("Comfortaa", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.Location = new Point(85, 39);
             label8.Name = "label8";
-            label8.Size = new Size(140, 18);
+            label8.Size = new Size(121, 16);
             label8.TabIndex = 20;
             label8.Text = "Of all appointments";
             // 
@@ -366,18 +353,17 @@
             // 
             label7.AutoSize = true;
             label7.BackColor = Color.FromArgb(248, 248, 248);
-            label7.Font = new Font("Comfortaa", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Font = new Font("Microsoft Sans Serif", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(221, 24, 24);
             label7.Location = new Point(84, 16);
             label7.Name = "label7";
-            label7.Size = new Size(90, 22);
+            label7.Size = new Size(87, 20);
             label7.TabIndex = 20;
             label7.Text = "Canceled";
             // 
             // panel10
             // 
             panel10.BackColor = Color.FromArgb(248, 248, 248);
-            panel10.Controls.Add(appointmentsGridView);
             panel10.Controls.Add(label9);
             panel10.Controls.Add(addAppointmentButton);
             panel10.Location = new Point(3, 237);
@@ -385,109 +371,13 @@
             panel10.Size = new Size(1130, 470);
             panel10.TabIndex = 12;
             // 
-            // appointmentsGridView
-            // 
-            appointmentsGridView.AllowUserToAddRows = false;
-            appointmentsGridView.AllowUserToDeleteRows = false;
-            appointmentsGridView.AllowUserToResizeColumns = false;
-            appointmentsGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 248, 248);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(248, 248, 248);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            appointmentsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            appointmentsGridView.BackgroundColor = Color.FromArgb(248, 248, 248);
-            appointmentsGridView.BorderStyle = BorderStyle.None;
-            appointmentsGridView.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(248, 248, 248);
-            dataGridViewCellStyle2.Font = new Font("Comfortaa", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(248, 248, 248);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            appointmentsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            appointmentsGridView.ColumnHeadersHeight = 55;
-            appointmentsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            appointmentsGridView.Columns.AddRange(new DataGridViewColumn[] { patientId, patientName, visitType, date, time, contactNumber });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.LightGray;
-            dataGridViewCellStyle3.Font = new Font("Comfortaa", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = Color.LightGray;
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            appointmentsGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            appointmentsGridView.EnableHeadersVisualStyles = false;
-            appointmentsGridView.GridColor = Color.FromArgb(248, 248, 248);
-            appointmentsGridView.Location = new Point(12, 73);
-            appointmentsGridView.MultiSelect = false;
-            appointmentsGridView.Name = "appointmentsGridView";
-            appointmentsGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(248, 248, 248);
-            dataGridViewCellStyle4.Font = new Font("Comfortaa", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(248, 248, 248);
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            appointmentsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            appointmentsGridView.RowHeadersVisible = false;
-            appointmentsGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(248, 248, 248);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(248, 248, 248);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            appointmentsGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            appointmentsGridView.Size = new Size(1107, 390);
-            appointmentsGridView.TabIndex = 7;
-            // 
-            // patientId
-            // 
-            patientId.HeaderText = "#";
-            patientId.Name = "patientId";
-            patientId.Width = 140;
-            // 
-            // patientName
-            // 
-            patientName.HeaderText = "Patient";
-            patientName.Name = "patientName";
-            patientName.ReadOnly = true;
-            patientName.Width = 158;
-            // 
-            // visitType
-            // 
-            visitType.HeaderText = "Visit Type";
-            visitType.Name = "visitType";
-            visitType.ReadOnly = true;
-            visitType.Width = 158;
-            // 
-            // date
-            // 
-            date.HeaderText = "Date";
-            date.Name = "date";
-            date.ReadOnly = true;
-            date.Width = 158;
-            // 
-            // time
-            // 
-            time.HeaderText = "Time";
-            time.Name = "time";
-            time.ReadOnly = true;
-            time.Width = 158;
-            // 
-            // contactNumber
-            // 
-            contactNumber.HeaderText = "Contact";
-            contactNumber.Name = "contactNumber";
-            contactNumber.ReadOnly = true;
-            contactNumber.Width = 158;
-            // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Comfortaa", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.Location = new Point(14, 23);
             label9.Name = "label9";
-            label9.Size = new Size(191, 21);
+            label9.Size = new Size(184, 20);
             label9.TabIndex = 1;
             label9.Text = "Today's appointments";
             // 
@@ -496,7 +386,7 @@
             addAppointmentButton.BackColor = Color.Gainsboro;
             addAppointmentButton.FlatAppearance.BorderSize = 0;
             addAppointmentButton.FlatStyle = FlatStyle.Flat;
-            addAppointmentButton.Font = new Font("Comfortaa", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            addAppointmentButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             addAppointmentButton.Location = new Point(952, 17);
             addAppointmentButton.Name = "addAppointmentButton";
             addAppointmentButton.Size = new Size(163, 37);
@@ -542,7 +432,6 @@
             panel9.PerformLayout();
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)appointmentsGridView).EndInit();
             ResumeLayout(false);
         }
 
@@ -577,12 +466,5 @@
         private System.Windows.Forms.Label todaysAppointmentsLabel;
         private System.Windows.Forms.Label completedAppointmentsLabel;
         private System.Windows.Forms.Label canceledAppointmentsLabel;
-        private DataGridView appointmentsGridView;
-        private DataGridViewTextBoxColumn patientId;
-        private DataGridViewTextBoxColumn patientName;
-        private DataGridViewTextBoxColumn visitType;
-        private DataGridViewTextBoxColumn date;
-        private DataGridViewTextBoxColumn time;
-        private DataGridViewTextBoxColumn contactNumber;
     }
 }
