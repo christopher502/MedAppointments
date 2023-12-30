@@ -1,7 +1,19 @@
-﻿namespace MedAppointments
+﻿using System.Runtime.InteropServices;
+
+namespace MedAppointments
 {
     partial class DashboardUserControl
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        public static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeft,
+            int nTop,
+            int nRight,
+            int nBottom,
+            int nWidthEllipse,
+            int nHeightEllipse
+        );
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -433,6 +445,19 @@
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
             ResumeLayout(false);
+
+            welcomePanelBackground.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, welcomePanelBackground.Width, welcomePanelBackground.Height, 22, 22));
+            panel1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 22, 22));
+            panel2.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel2.Width, panel2.Height, 22, 22));
+            panel3.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel3.Width, panel3.Height, 22, 22));
+            panel4.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel4.Width, panel4.Height, 22, 22));
+            panel5.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel5.Width, panel5.Height, 22, 22));
+            panel6.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel6.Width, panel6.Height, 22, 22));
+            panel7.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel7.Width, panel7.Height, 22, 22));
+            panel8.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel8.Width, panel8.Height, 22, 22));
+            panel9.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel9.Width, panel9.Height, 22, 22));
+            panel10.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel10.Width, panel10.Height, 22, 22));
+            addAppointmentButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, addAppointmentButton.Width, addAppointmentButton.Height, 22, 22));
         }
 
         #endregion

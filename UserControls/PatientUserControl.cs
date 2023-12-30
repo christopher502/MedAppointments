@@ -9,25 +9,12 @@ namespace MedAppointments
     {
         private PatientService patientService;
 
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        public static extern IntPtr CreateRoundRectRgn
-        (
-            int nLeft,
-            int nTop,
-            int nRight,
-            int nBottom,
-            int nWidthEllipse,
-            int nHeightEllipse
-        );
         public PatientUserControl()
         {
             InitializeComponent();
             this.patientService = new PatientService();
 
-            panel1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 30, 30));
-            addPatientButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, addPatientButton.Width, addPatientButton.Height, 22, 22));
-
-            AddActionButtonsColumn();
+            ConfigureButtonColumns();
             InitializeGridContent();
         }
 
@@ -40,7 +27,6 @@ namespace MedAppointments
                 patientDetails.ShowDialog();
             }
         }
-
 
         public void InitializeGridContent()
         {
@@ -85,7 +71,7 @@ namespace MedAppointments
             }
         }
 
-        private void AddActionButtonsColumn()
+        private void ConfigureButtonColumns()
         {
             DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
             editButton.Width = 75;

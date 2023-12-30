@@ -8,21 +8,10 @@ namespace MedAppointments
     {
         private DoctorService doctorService;
 
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        public static extern IntPtr CreateRoundRectRgn
-        (
-            int nLeft,
-            int nTop,
-            int nRight,
-            int nBottom,
-            int nWidthEllipse,
-            int nHeightEllipse
-        );
         public MainForm()
         {
             InitializeComponent();
             this.doctorService = new DoctorService();
-            panelContainer.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelContainer.Width, panelContainer.Height, 25, 25));
             fullNameLabel.Text = doctorService.GetDoctorById(1).name +" "+ doctorService.GetDoctorById(1).surname;
 
             addUserControl(new DashboardUserControl());

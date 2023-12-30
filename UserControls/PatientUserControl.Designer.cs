@@ -1,7 +1,19 @@
-﻿namespace MedAppointments
+﻿using System.Runtime.InteropServices;
+
+namespace MedAppointments
 {
     partial class PatientUserControl
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        public static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeft,
+            int nTop,
+            int nRight,
+            int nBottom,
+            int nWidthEllipse,
+            int nHeightEllipse
+        );
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -193,6 +205,10 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)patientdGridView).EndInit();
             ResumeLayout(false);
+
+
+            panel1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 30, 30));
+            addPatientButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, addPatientButton.Width, addPatientButton.Height, 22, 22));
         }
 
         #endregion
