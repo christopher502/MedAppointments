@@ -35,7 +35,6 @@ namespace MedAppointments
                 appointmentDetails.ShowDialog();
             }
             customDataGridView.InitializeGridContent(appointmentService.GetAllAppointments());
-
         }
     }
 }

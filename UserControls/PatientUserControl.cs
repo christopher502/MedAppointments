@@ -1,5 +1,7 @@
 ﻿using MedAppointments.Data.Entities;
+using MedAppointments.Forms;
 using MedAppointments.Services;
+using MedAppointments.Util;
 using System.Data;
 using System.Runtime.InteropServices;
 
@@ -100,11 +102,26 @@ namespace MedAppointments
                     object rowHeader = dataGridView.Rows[e.RowIndex].HeaderCell.Value;
                     if (e.ColumnIndex == 6)
                     {
-                        MessageBox.Show($"Button1 clicked in row {e.RowIndex}, Row Header: {rowHeader}");
+                        DialogResult dialogResult = MessageBox.Show("Confirm removing patient ?", "Delete Patient", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            patientService.DeletePatient((int)rowHeader);
+                            InitializeGridContent();
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            // do nothing
+                        }
                     }
                     else if (e.ColumnIndex == 7)
                     {
-                        MessageBox.Show($"Button2 clicked in row {e.RowIndex}, Row Header: {rowHeader}");
+                        using (EditPatientForm patientDetails = new EditPatientForm((int)rowHeader))
+                        {
+                            patientDetails.StartPosition = FormStartPosition.CenterParent;
+                            patientDetails.ShowInTaskbar = false;
+                            patientDetails.ShowDialog();
+                        }
+                        InitializeGridContent();
                     }
                 }
             }

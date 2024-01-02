@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.Design;
 
 namespace MedAppointments.Data.Entities
 {
     public class Patient : Person
     {
         public int visits { get; set; }
+
+        [Column("active")]
+        public Boolean active { get; set; }
         public ICollection<Appointment> appointments { get; set; }
 
         public override string ToString()

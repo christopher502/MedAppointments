@@ -1,6 +1,7 @@
 ﻿using MedAppointments.Enums;
 using MedAppointments.Data.DatabaseContext;
 using MedAppointments.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace MedAppointments.Services
 {
@@ -14,7 +15,7 @@ namespace MedAppointments.Services
         
         public List<Patient> GetAllPatients()
         {
-            return databaseContext.patients.ToList();
+            return databaseContext.patients.AsNoTracking().Where(patient => patient.active.Equals(true)).ToList();
         }
 
         public Patient GetPatientById(int id)
@@ -32,6 +33,7 @@ namespace MedAppointments.Services
                 contactnumber = contactnumber,
                 gender = gender,
                 birthdate = birthdate.ToUniversalTime(),
+                active = true,
                 visits = 0
             };
             databaseContext.patients.Add(patient);
@@ -45,6 +47,43 @@ namespace MedAppointments.Services
             }
             return patient;
 
+        }
+
+        public Patient? UpdatePatient (int id, string name, string surname, DateTime birthdate, string contactnumber, Gender gender)
+        {
+            Patient patient = GetPatientById(id);
+            patient.name = name;
+            patient.surname = surname;
+            patient.birthdate = birthdate.ToUniversalTime();
+            patient.contactnumber = contactnumber;
+            patient.gender = gender;
+
+            try
+            {
+                databaseContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            return patient;
+
+        }
+
+        public Boolean DeletePatient(int id)
+        {
+            Patient patient = GetPatientById(id);
+            patient.active = false;
+
+            try
+            {
+                databaseContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
