@@ -58,7 +58,7 @@ namespace MedAppointments.Forms
                 if (!this.name.Equals(name) || !this.surname.Equals(surname) || !this.contactnumber.Equals(contactnumber) || !this.gender.Equals(gender) 
                     || (this.birthdate == birthdate) == false)
                 {
-                    Patient patient = patientService.UpdatePatient(patientid, name, surname, birthdate, contactnumber, gender);
+                    Patient patient = patientService.UpdatePatient(patientid, name, surname, birthdate, contactnumber, gender, patientService.GetPatientById(patientid).visits);
                     string notification = (patient == null) ? "Could not update profile due to database issues. Please try again later or contact the administrator!"
                             : "Patient profile was successfully updated.";
 

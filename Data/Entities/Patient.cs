@@ -13,6 +13,7 @@ namespace MedAppointments.Data.Entities
 {
     public class Patient : Person
     {
+        [Column("visits")]
         public int visits { get; set; }
 
         [Column("active")]

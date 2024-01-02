@@ -1,5 +1,6 @@
 ﻿using MedAppointments.Data.DatabaseContext;
 using MedAppointments.Data.Entities;
+using MedAppointments.Enums;
 using Microsoft.EntityFrameworkCore;
 using System.Numerics;
 
@@ -8,10 +9,12 @@ namespace MedAppointments.Services
     public class AppointmentService
     {
         private AppointmentsContext databaseContext { get; set; }
+        private PatientService patientService;
 
         public AppointmentService()
         {
             this.databaseContext = new AppointmentsContext();
+            this.patientService = new PatientService();
         }
 
         public List<Appointment> GetAllAppointments()
@@ -59,7 +62,7 @@ namespace MedAppointments.Services
         {
             DateTime currentDateInUtc = DateTime.Today.ToUniversalTime();
             return databaseContext.appointments
-                .Where(appointment =>  (appointment.appointmentdate.Day == currentDateInUtc.Day && appointment.appointmentdate.Month == currentDateInUtc.Month && appointment.appointmentdate.Year == currentDateInUtc.Year))
+                .Where(appointment =>  (appointment.appointmentdate.Day == currentDateInUtc.Day && appointment.appointmentdate.Month == currentDateInUtc.Month && appointment.appointmentdate.Year == currentDateInUtc.Year && !appointment.status.name.Equals("Completed")))
                 .AsNoTracking()
                 .Include(p => p.patient)
                 .Include(v => v.visit)
@@ -101,6 +104,13 @@ namespace MedAppointments.Services
             try
             {
                 databaseContext.SaveChanges();
+                Appointment updated = GetAppointmentById(id);
+                if (updated.status.name == "Completed")
+                {
+                    Patient uPatient = patientService.UpdatePatient(updated.patient.id, updated.patient.name, updated.patient.surname, updated.patient.birthdate,
+                        updated.patient.contactnumber, updated.patient.gender, updated.patient.visits + 1);
+                }
+
             }
             catch (Exception ex)
             {

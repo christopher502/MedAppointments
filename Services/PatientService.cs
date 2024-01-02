@@ -49,7 +49,7 @@ namespace MedAppointments.Services
 
         }
 
-        public Patient? UpdatePatient (int id, string name, string surname, DateTime birthdate, string contactnumber, Gender gender)
+        public Patient? UpdatePatient (int id, string name, string surname, DateTime birthdate, string contactnumber, Gender gender, int visits)
         {
             Patient patient = GetPatientById(id);
             patient.name = name;
@@ -57,6 +57,7 @@ namespace MedAppointments.Services
             patient.birthdate = birthdate.ToUniversalTime();
             patient.contactnumber = contactnumber;
             patient.gender = gender;
+            patient.visits = visits;
 
             try
             {
