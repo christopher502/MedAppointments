@@ -52,7 +52,6 @@ namespace MedAppointments
                 this.Close();
                 MessageBox.Show(notification);
             }
-            customDataGridView.InitializeGridContent();
         }
 
         private void CancelButtonClick(object sender, EventArgs e)

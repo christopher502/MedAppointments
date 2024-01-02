@@ -9,10 +9,12 @@ namespace MedAppointments
 {
     public partial class AppointmentUserControl : UserControl
     {
+        private AppointmentService appointmentService;
         private CustomDataGridView customDataGridView;
 
         public AppointmentUserControl()
         {
+            this.appointmentService = new AppointmentService();
             InitializeComponent();
             CreateDataGridView();
         }
@@ -21,7 +23,7 @@ namespace MedAppointments
         {
             customDataGridView = new CustomDataGridView(13, 74, 1105, 621);
             panel1.Controls.Add(customDataGridView);
-            customDataGridView.InitializeGridContent();
+            customDataGridView.InitializeGridContent(appointmentService.GetAllAppointments());
         }
 
         private void AddAppointmentButtonClick(object sender, EventArgs e)
@@ -32,6 +34,8 @@ namespace MedAppointments
                 appointmentDetails.ShowInTaskbar = false;
                 appointmentDetails.ShowDialog();
             }
+            customDataGridView.InitializeGridContent(appointmentService.GetAllAppointments());
+
         }
     }
 }

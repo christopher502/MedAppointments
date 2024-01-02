@@ -19,5 +19,22 @@ namespace MedAppointments.Data.Entities
         {
             return $"{name} {surname}";
         }
+        public string DisplayFullName => $"{name} {surname}";
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            Patient otherPatient = (Patient)obj;
+            return id == otherPatient.id;
+        }
+
+        public override int GetHashCode()
+        {
+            return id.GetHashCode();
+        }
     }
 }

@@ -21,8 +21,6 @@ namespace MedAppointments.Util
             ConfigureColumns();
             SetColumnsAlignment();
             GeneralCustomization();
-
-            CellContentClick += ActionButtonsClick;
         }
 
         private void ConfigureColumns()
@@ -42,7 +40,6 @@ namespace MedAppointments.Util
             Columns["contactColumn"].Width = 158;
 
             DataGridViewButtonColumn editColumn = new DataGridViewButtonColumn();
-            editColumn.HeaderText = "Action";
             editColumn.Width = 150;
             editColumn.Text = "Edit";
             editColumn.UseColumnTextForButtonValue = true;
@@ -103,10 +100,9 @@ namespace MedAppointments.Util
             Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
         }
 
-        public void InitializeGridContent()
+        public void InitializeGridContent(List<Appointment> apointmentList)
         {
             Rows.Clear();
-            List<Appointment> apointmentList = appointmentService.GetAllAppointments();
 
             int x = 0;
             foreach (Appointment a in apointmentList)
@@ -138,18 +134,5 @@ namespace MedAppointments.Util
                 }
             }
         }
-
-        private void ActionButtonsClick(object sender, DataGridViewCellEventArgs e)
-        {
-            object rowHeader = Rows[e.RowIndex].HeaderCell.Value;
-
-            using (EditAppointmentForm editAppointmentForm = new EditAppointmentForm((int)rowHeader))
-            {
-                editAppointmentForm.StartPosition = FormStartPosition.CenterParent;
-                editAppointmentForm.ShowInTaskbar = false;
-                editAppointmentForm.ShowDialog();
-            }
-        }
-
     }
 }

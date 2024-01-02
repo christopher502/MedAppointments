@@ -20,5 +20,21 @@ namespace MedAppointments.Data.Entities
         {
             return $"{name}";
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            Status otherStatus = (Status)obj;
+            return id == otherStatus.id;
+        }
+
+        public override int GetHashCode()
+        {
+            return id.GetHashCode();
+        }
     }
 }

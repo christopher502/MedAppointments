@@ -20,5 +20,21 @@ namespace MedAppointments.Data.Entities
         {
             return $"{name}";
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            Visit otherVisit = (Visit)obj;
+            return id == otherVisit.id;
+        }
+
+        public override int GetHashCode()
+        {
+            return id.GetHashCode();
+        }
     }
 }

@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Numerics;
 using MedAppointments.Data.Entities;
 using MedAppointments.Services;
+using MedAppointments.Util;
 
 namespace MedAppointments.Forms
 {
@@ -16,6 +14,8 @@ namespace MedAppointments.Forms
     {
         private AppointmentService appointmentService;
         private PatientService patientService;
+        private VisitService visitService;
+        private StatusService statusService;
         private int appointmentId;
 
         private Patient patient { get; set; }
@@ -26,23 +26,65 @@ namespace MedAppointments.Forms
 
         public EditAppointmentForm(int appointmentId)
         {
+
             InitializeComponent();
             this.appointmentService = new AppointmentService();
             this.patientService = new PatientService();
+            this.visitService = new VisitService();
+            this.statusService = new StatusService();
             this.appointmentId = appointmentId;
-
             FillAppointmentDetails();
         }
 
         private void FillAppointmentDetails()
         {
             Appointment appointment = appointmentService.GetAppointmentById(appointmentId);
-            this.patientComboBox.DataSource = appointment.patient;
+            this.patientComboBox.DataSource = patientService.GetAllPatients();
+            this.patientComboBox.DisplayMember = "DisplayFullName";
+            this.patientComboBox.ValueMember = "id";
+            this.patientComboBox.SelectedItem = this.patient = appointment.patient;
+
+            this.datePicker.Value = this.date = appointment.appointmentdate;
+            this.timePicker.Value = DateTime.Today.Add(appointment.appointmenttime);
+            this.time = appointment.appointmenttime;
+
+            this.visitTypeComboBox.DataSource = visitService.GetAllVisitTypes();
+            this.visitTypeComboBox.DisplayMember = "name";
+            this.visitTypeComboBox.ValueMember = "id";
+            this.visitTypeComboBox.SelectedItem = this.visit = appointment.visit;
+
+            this.statusComboBox.DataSource = statusService.GetAllStatusTypes();
+            this.statusComboBox.DisplayMember = "name";
+            this.statusComboBox.ValueMember = "id";
+            this.statusComboBox.SelectedItem = this.status = appointment.status;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            Patient patient = (Patient)patientComboBox.SelectedItem;
+            Visit visit = (Visit)visitTypeComboBox.SelectedItem;
+            Status status = (Status)statusComboBox.SelectedItem;
+            DateTime appointmentDate = datePicker.Value.Date;
+            TimeSpan appointmentTime = timePicker.Value.TimeOfDay;
+
+            if (!this.patient.Equals(patient) || !this.status.Equals(status) ||  !this.visit.Equals(visit) || !this.date.Equals(date) || !this.time.Equals(appointmentTime))
+            {
+                Appointment appointment = appointmentService.UpdateAppointment(appointmentId, patient, status, visit, appointmentDate, appointmentTime);
+                string notification = (appointment == null) ? "Could not update appointment details due to database issues. Please try again later or contact the administrator!"
+:                   "Appointment was successfully updated.";
+
+                this.Close();
+                MessageBox.Show(notification);
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }
 }

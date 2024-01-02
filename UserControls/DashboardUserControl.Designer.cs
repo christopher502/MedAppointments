@@ -141,7 +141,7 @@ namespace MedAppointments
             // 
             todaysDateLabel.AutoSize = true;
             todaysDateLabel.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            todaysDateLabel.Location = new Point(122, 54);
+            todaysDateLabel.Location = new Point(117, 52);
             todaysDateLabel.Name = "todaysDateLabel";
             todaysDateLabel.Size = new Size(160, 31);
             todaysDateLabel.TabIndex = 1;
@@ -165,7 +165,7 @@ namespace MedAppointments
             panel2.Controls.Add(label1);
             panel2.Location = new Point(3, 139);
             panel2.Name = "panel2";
-            panel2.Size = new Size(266, 79);
+            panel2.Size = new Size(266, 80);
             panel2.TabIndex = 8;
             // 
             // label2
@@ -183,7 +183,7 @@ namespace MedAppointments
             // 
             panel6.BackColor = Color.FromArgb(231, 249, 244);
             panel6.Controls.Add(allPatientsAppointmentsLabel);
-            panel6.Location = new Point(11, 5);
+            panel6.Location = new Point(7, 8);
             panel6.Name = "panel6";
             panel6.Size = new Size(65, 65);
             panel6.TabIndex = 12;
@@ -193,7 +193,7 @@ namespace MedAppointments
             allPatientsAppointmentsLabel.AutoSize = true;
             allPatientsAppointmentsLabel.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             allPatientsAppointmentsLabel.ForeColor = Color.FromArgb(47, 208, 205);
-            allPatientsAppointmentsLabel.Location = new Point(18, 12);
+            allPatientsAppointmentsLabel.Location = new Point(18, 15);
             allPatientsAppointmentsLabel.Name = "allPatientsAppointmentsLabel";
             allPatientsAppointmentsLabel.Size = new Size(32, 33);
             allPatientsAppointmentsLabel.TabIndex = 2;
@@ -219,7 +219,7 @@ namespace MedAppointments
             panel3.Controls.Add(panel7);
             panel3.Location = new Point(291, 139);
             panel3.Name = "panel3";
-            panel3.Size = new Size(266, 79);
+            panel3.Size = new Size(266, 80);
             panel3.TabIndex = 9;
             // 
             // label4
@@ -249,7 +249,7 @@ namespace MedAppointments
             // 
             panel7.BackColor = Color.FromArgb(241, 232, 255);
             panel7.Controls.Add(todaysAppointmentsLabel);
-            panel7.Location = new Point(13, 5);
+            panel7.Location = new Point(7, 8);
             panel7.Name = "panel7";
             panel7.Size = new Size(65, 65);
             panel7.TabIndex = 13;
@@ -259,7 +259,7 @@ namespace MedAppointments
             todaysAppointmentsLabel.AutoSize = true;
             todaysAppointmentsLabel.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             todaysAppointmentsLabel.ForeColor = Color.FromArgb(122, 50, 255);
-            todaysAppointmentsLabel.Location = new Point(18, 12);
+            todaysAppointmentsLabel.Location = new Point(18, 15);
             todaysAppointmentsLabel.Name = "todaysAppointmentsLabel";
             todaysAppointmentsLabel.Size = new Size(32, 33);
             todaysAppointmentsLabel.TabIndex = 3;
@@ -273,7 +273,7 @@ namespace MedAppointments
             panel4.Controls.Add(label5);
             panel4.Location = new Point(579, 139);
             panel4.Name = "panel4";
-            panel4.Size = new Size(266, 79);
+            panel4.Size = new Size(266, 80);
             panel4.TabIndex = 10;
             // 
             // label6
@@ -291,7 +291,7 @@ namespace MedAppointments
             // 
             panel8.BackColor = Color.FromArgb(231, 249, 244);
             panel8.Controls.Add(completedAppointmentsLabel);
-            panel8.Location = new Point(13, 5);
+            panel8.Location = new Point(7, 8);
             panel8.Name = "panel8";
             panel8.Size = new Size(65, 65);
             panel8.TabIndex = 14;
@@ -301,7 +301,7 @@ namespace MedAppointments
             completedAppointmentsLabel.AutoSize = true;
             completedAppointmentsLabel.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             completedAppointmentsLabel.ForeColor = Color.FromArgb(3, 191, 102);
-            completedAppointmentsLabel.Location = new Point(17, 13);
+            completedAppointmentsLabel.Location = new Point(18, 15);
             completedAppointmentsLabel.Name = "completedAppointmentsLabel";
             completedAppointmentsLabel.Size = new Size(32, 33);
             completedAppointmentsLabel.TabIndex = 4;
@@ -327,14 +327,14 @@ namespace MedAppointments
             panel5.Controls.Add(label7);
             panel5.Location = new Point(867, 139);
             panel5.Name = "panel5";
-            panel5.Size = new Size(266, 79);
+            panel5.Size = new Size(266, 80);
             panel5.TabIndex = 11;
             // 
             // panel9
             // 
             panel9.BackColor = Color.FromArgb(250, 230, 230);
             panel9.Controls.Add(canceledAppointmentsLabel);
-            panel9.Location = new Point(13, 5);
+            panel9.Location = new Point(7, 8);
             panel9.Name = "panel9";
             panel9.Size = new Size(65, 65);
             panel9.TabIndex = 15;
@@ -344,7 +344,7 @@ namespace MedAppointments
             canceledAppointmentsLabel.AutoSize = true;
             canceledAppointmentsLabel.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             canceledAppointmentsLabel.ForeColor = Color.FromArgb(221, 24, 24);
-            canceledAppointmentsLabel.Location = new Point(18, 12);
+            canceledAppointmentsLabel.Location = new Point(18, 15);
             canceledAppointmentsLabel.Name = "canceledAppointmentsLabel";
             canceledAppointmentsLabel.Size = new Size(32, 33);
             canceledAppointmentsLabel.TabIndex = 5;
@@ -445,19 +445,6 @@ namespace MedAppointments
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
             ResumeLayout(false);
-
-            welcomePanelBackground.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, welcomePanelBackground.Width, welcomePanelBackground.Height, 22, 22));
-            panel1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 22, 22));
-            panel2.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel2.Width, panel2.Height, 22, 22));
-            panel3.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel3.Width, panel3.Height, 22, 22));
-            panel4.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel4.Width, panel4.Height, 22, 22));
-            panel5.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel5.Width, panel5.Height, 22, 22));
-            panel6.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel6.Width, panel6.Height, 22, 22));
-            panel7.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel7.Width, panel7.Height, 22, 22));
-            panel8.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel8.Width, panel8.Height, 22, 22));
-            panel9.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel9.Width, panel9.Height, 22, 22));
-            panel10.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel10.Width, panel10.Height, 22, 22));
-            addAppointmentButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, addAppointmentButton.Width, addAppointmentButton.Height, 22, 22));
         }
 
         #endregion

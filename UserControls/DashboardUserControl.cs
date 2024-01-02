@@ -34,7 +34,8 @@ namespace MedAppointments
         {
             customDataGridView = new CustomDataGridView(13, 74, 1105, 621);
             panel10.Controls.Add(customDataGridView);
-            customDataGridView.InitializeGridContent();
+            customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointments());
+            customDataGridView.CellContentClick += ActionButtonsClick;
         }
 
         private void ConfigureWorkspace()
@@ -59,6 +60,22 @@ namespace MedAppointments
                 appointmentDetails.ShowInTaskbar = false;
                 appointmentDetails.ShowDialog();
             }
+            customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointments());
+
+        }
+
+
+        private void ActionButtonsClick(object sender, DataGridViewCellEventArgs e)
+        {
+            object rowHeader = customDataGridView.Rows[e.RowIndex].HeaderCell.Value;
+
+            using (EditAppointmentForm editAppointmentForm = new EditAppointmentForm((int)rowHeader))
+            {
+                editAppointmentForm.StartPosition = FormStartPosition.CenterParent;
+                editAppointmentForm.ShowInTaskbar = false;
+                editAppointmentForm.ShowDialog();
+            }
+            customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointments());
         }
     }
 }
