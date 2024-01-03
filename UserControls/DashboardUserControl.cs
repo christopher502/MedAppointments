@@ -35,7 +35,7 @@ namespace MedAppointments
             customDataGridView = new CustomDataGridView(13, 74, 1105, 621);
             panel10.Controls.Add(customDataGridView);
             customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointments());
-            customDataGridView.CellContentClick += ActionButtonsClick;
+            customDataGridView.CellContentClick += EditButtonClick;
         }
 
         private void ConfigureWorkspace()
@@ -65,7 +65,7 @@ namespace MedAppointments
         }
 
 
-        private void ActionButtonsClick(object sender, DataGridViewCellEventArgs e)
+        private void EditButtonClick(object sender, DataGridViewCellEventArgs e)
         {
             object rowHeader = customDataGridView.Rows[e.RowIndex].HeaderCell.Value;
 

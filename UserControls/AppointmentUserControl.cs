@@ -1,4 +1,5 @@
 ﻿using MedAppointments.Data.Entities;
+using MedAppointments.Forms;
 using MedAppointments.Services;
 using MedAppointments.Util;
 using System.Runtime.InteropServices;
@@ -23,6 +24,7 @@ namespace MedAppointments
         {
             customDataGridView = new CustomDataGridView(13, 74, 1105, 621);
             panel1.Controls.Add(customDataGridView);
+            customDataGridView.CellContentClick += EditButtonClick;
             customDataGridView.InitializeGridContent(appointmentService.GetAllAppointments());
         }
 
@@ -33,6 +35,19 @@ namespace MedAppointments
                 appointmentDetails.StartPosition = FormStartPosition.CenterParent;
                 appointmentDetails.ShowInTaskbar = false;
                 appointmentDetails.ShowDialog();
+            }
+            customDataGridView.InitializeGridContent(appointmentService.GetAllAppointments());
+        }
+
+        private void EditButtonClick(object sender, DataGridViewCellEventArgs e)
+        {
+            object rowHeader = customDataGridView.Rows[e.RowIndex].HeaderCell.Value;
+
+            using (EditAppointmentForm editAppointmentForm = new EditAppointmentForm((int)rowHeader))
+            {
+                editAppointmentForm.StartPosition = FormStartPosition.CenterParent;
+                editAppointmentForm.ShowInTaskbar = false;
+                editAppointmentForm.ShowDialog();
             }
             customDataGridView.InitializeGridContent(appointmentService.GetAllAppointments());
         }
