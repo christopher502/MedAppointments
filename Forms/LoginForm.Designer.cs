@@ -39,7 +39,6 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            label2 = new Label();
             label1 = new Label();
             label3 = new Label();
             panel2 = new Panel();
@@ -57,26 +56,13 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(label2);
+            panel1.BackgroundImage = Properties.Resources.wallpaper;
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(454, 577);
             panel1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Arial Rounded MT Bold", 17.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(24, 157);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(231, 27);
-            label2.TabIndex = 1;
-            label2.Text = "AGENDA PLANNER";
             // 
             // label1
             // 
@@ -87,9 +73,8 @@
             label1.Location = new Point(4, 0);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(204, 167);
+            label1.Size = new Size(0, 167);
             label1.TabIndex = 0;
-            label1.Text = "ACA";
             // 
             // label3
             // 
@@ -158,7 +143,7 @@
             // 
             // loginButton
             // 
-            loginButton.BackColor = Color.FromArgb(59, 186, 156);
+            loginButton.BackColor = Color.FromArgb(37, 139, 250);
             loginButton.FlatAppearance.BorderSize = 0;
             loginButton.FlatStyle = FlatStyle.Flat;
             loginButton.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -209,7 +194,7 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "LoginForm";
+            Text = "Login";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -223,7 +208,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
