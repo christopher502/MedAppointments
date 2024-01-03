@@ -11,8 +11,9 @@ namespace MedAppointments
         private VisitService visitService;
         private StatusService statusService;
         private CustomDataGridView customDataGridView;
+        private Doctor doctor;
 
-        public AppointmentDetailForm(CustomDataGridView customDataGridView)
+        public AppointmentDetailForm(CustomDataGridView customDataGridView, Doctor doctor)
         {
             InitializeComponent();
             this.appointmentService = new AppointmentService();
@@ -20,8 +21,9 @@ namespace MedAppointments
             this.visitService = new VisitService();
             this.statusService = new StatusService();
             this.customDataGridView = customDataGridView;
+            this.doctor = doctor;
 
-            this.patientComboBox.DataSource = patientService.GetAllPatients();
+            this.patientComboBox.DataSource = patientService.GetAllPatientsByDoctor(doctor);
             this.patientComboBox.SelectedIndex = -1;
 
             this.visitTypeComboBox.DataSource = visitService.GetAllVisitTypes();
@@ -45,7 +47,7 @@ namespace MedAppointments
                 TimeSpan appointmentTime = timePicker.Value.TimeOfDay;
 
 
-                Appointment? appointment = appointmentService.AddAppointemnt(patient, visit, status, appointmentDate, appointmentTime);
+                Appointment? appointment = appointmentService.AddAppointemnt(patient, visit, status, appointmentDate, appointmentTime, doctor);
                 string notification = (appointment == null) ? "Could not add new appointment due to database issues. Please try again later or contact the administrator!"
                                             : "Appointment for patient: '" + patient.name + " " + patient.surname + "' was successfully added.";
 

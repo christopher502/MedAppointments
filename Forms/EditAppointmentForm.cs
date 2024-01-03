@@ -15,6 +15,7 @@ namespace MedAppointments.Forms
         private AppointmentService appointmentService;
         private PatientService patientService;
         private VisitService visitService;
+        private Doctor doctor;
         private StatusService statusService;
         private int appointmentId;
 
@@ -24,7 +25,7 @@ namespace MedAppointments.Forms
         private TimeSpan time { get; set; }
         private Status status { get; set; }
 
-        public EditAppointmentForm(int appointmentId)
+        public EditAppointmentForm(int appointmentId, Doctor doctor)
         {
 
             InitializeComponent();
@@ -33,13 +34,14 @@ namespace MedAppointments.Forms
             this.visitService = new VisitService();
             this.statusService = new StatusService();
             this.appointmentId = appointmentId;
+            this.doctor = doctor;
             FillAppointmentDetails();
         }
 
         private void FillAppointmentDetails()
         {
             Appointment appointment = appointmentService.GetAppointmentById(appointmentId);
-            this.patientComboBox.DataSource = patientService.GetAllPatients();
+            this.patientComboBox.DataSource = patientService.GetAllPatientsByDoctor(doctor);
             this.patientComboBox.DisplayMember = "DisplayFullName";
             this.patientComboBox.ValueMember = "id";
             this.patientComboBox.SelectedItem = this.patient = appointment.patient;

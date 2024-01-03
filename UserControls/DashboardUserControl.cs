@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MedAppointments.Util;
+using System.Xml.Linq;
 
 namespace MedAppointments
 {
@@ -20,11 +21,13 @@ namespace MedAppointments
         private AppointmentService appointmentService;
         private DoctorService doctorService;
         private CustomDataGridView customDataGridView;
-        public DashboardUserControl()
+        private Doctor doctor;
+        public DashboardUserControl(Doctor doctor)
         {
             InitializeComponent();
             CreateRoundedCorners();
 
+            this.doctor = doctor;
             this.appointmentService = new AppointmentService();
             this.doctorService = new DoctorService();
             customDataGridView = new CustomDataGridView(13, 74, 1105, 621);
@@ -33,35 +36,35 @@ namespace MedAppointments
 
             ConfigureWorkspace();
             ConfigureStatistics();
-            customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointments());
+            customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointmentsByDoctor(doctor));
         }
         private void ConfigureWorkspace()
         {
             DateTime today = DateTime.Today;
             todaysDateLabel.Text = today.ToString("dd-MM-yyyy");
 
-            drnameLabel.Text = doctorService.GetDoctorById(1).surname;
-            specialityLabel.Text = doctorService.GetDoctorById(1).speciality;
+            drnameLabel.Text = doctor.name;
+            specialityLabel.Text = doctor.speciality;
         }
 
         private void ConfigureStatistics()
         {
-            allPatientsAppointmentsLabel.Text = appointmentService.GetAllPatientsTodaysAppointments().Count().ToString();
-            todaysAppointmentsLabel.Text = appointmentService.GetAllTodaysScheduledAppointments().Count().ToString();
-            completedAppointmentsLabel.Text = appointmentService.GetAllCompletedAppointments().Count.ToString();
-            canceledAppointmentsLabel.Text = appointmentService.GetAllCanceledAppointments().Count.ToString();
+            allPatientsAppointmentsLabel.Text = appointmentService.GetAllPatientsTodaysAppointmentsByDoctor(doctor).Count().ToString();
+            todaysAppointmentsLabel.Text = appointmentService.GetAllTodaysScheduledAppointmentsByDoctor(doctor).Count().ToString();
+            completedAppointmentsLabel.Text = appointmentService.GetAllCompletedAppointmentsByDoctor(doctor).Count.ToString();
+            canceledAppointmentsLabel.Text = appointmentService.GetAllCanceledAppointmentsByDoctor(doctor).Count.ToString();
         }
 
         private void AddApointmentButtonClick(object sender, EventArgs e)
         {
-            using (AppointmentDetailForm appointmentDetails = new AppointmentDetailForm(customDataGridView))
+            using (AppointmentDetailForm appointmentDetails = new AppointmentDetailForm(customDataGridView, doctor))
             {
                 appointmentDetails.StartPosition = FormStartPosition.CenterParent;
                 appointmentDetails.ShowInTaskbar = false;
                 appointmentDetails.ShowDialog();
             }
             ConfigureStatistics();
-            customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointments());
+            customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointmentsByDoctor(doctor));
         }
 
 
@@ -76,14 +79,14 @@ namespace MedAppointments
                 {
                     object rowHeader = dataGridView.Rows[e.RowIndex].HeaderCell.Value;
 
-                    using (EditAppointmentForm editAppointmentForm = new EditAppointmentForm((int)rowHeader))
+                    using (EditAppointmentForm editAppointmentForm = new EditAppointmentForm((int)rowHeader, doctor))
                     {
                         editAppointmentForm.StartPosition = FormStartPosition.CenterParent;
                         editAppointmentForm.ShowInTaskbar = false;
                         editAppointmentForm.ShowDialog();
                     }
                     ConfigureStatistics();
-                    customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointments());
+                    customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointmentsByDoctor(doctor));
                 }
             }
         }

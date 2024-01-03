@@ -18,6 +18,9 @@ namespace MedAppointments.Data.Entities
 
         [Column("active")]
         public Boolean active { get; set; }
+
+        [Column("doctorid")]
+        public int doctorid { get; set; }
         public ICollection<Appointment> appointments { get; set; }
 
         public override string ToString()
@@ -41,5 +44,7 @@ namespace MedAppointments.Data.Entities
         {
             return id.GetHashCode();
         }
+
+        public virtual Doctor doctor { get; set; }
     }
 }

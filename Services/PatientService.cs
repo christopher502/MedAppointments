@@ -13,9 +13,9 @@ namespace MedAppointments.Services
             this.databaseContext = new AppointmentsContext();
         }
         
-        public List<Patient> GetAllPatients()
+        public List<Patient> GetAllPatientsByDoctor(Doctor doctor)
         {
-            return databaseContext.patients.AsNoTracking().Where(patient => patient.active.Equals(true)).ToList();
+            return databaseContext.patients.AsNoTracking().Where(patient => patient.active.Equals(true) && patient.doctorid == doctor.id).ToList();
         }
 
         public Patient GetPatientById(int id)
@@ -24,7 +24,7 @@ namespace MedAppointments.Services
         }
 
 
-        public Patient? AddPatient(string name, string surname, string contactnumber, Gender gender, DateTime birthdate)
+        public Patient? AddPatient(string name, string surname, string contactnumber, Gender gender, DateTime birthdate,Doctor doctor)
         {
             Patient patient = new Patient
             {
@@ -34,7 +34,8 @@ namespace MedAppointments.Services
                 gender = gender,
                 birthdate = birthdate.ToUniversalTime(),
                 active = true,
-                visits = 0
+                visits = 0,
+                doctorid = doctor.id
             };
             databaseContext.patients.Add(patient);
             try
@@ -43,6 +44,7 @@ namespace MedAppointments.Services
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.InnerException.Message);
                 return null;
             }
             return patient;

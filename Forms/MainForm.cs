@@ -1,20 +1,24 @@
 ﻿using MedAppointments.Services;
 using System.Runtime.InteropServices;
 using MedAppointments.Util;
+using MedAppointments.Data.Entities;
 
 namespace MedAppointments
 {
     public partial class MainForm : Form
     {
         private DoctorService doctorService;
-
-        public MainForm()
+        private Doctor doctor;
+        public MainForm(Doctor doctor)
         {
             InitializeComponent();
             this.doctorService = new DoctorService();
-            fullNameLabel.Text = doctorService.GetDoctorById(1).name +" "+ doctorService.GetDoctorById(1).surname;
+            this.doctor = doctor;
 
-            addUserControl(new DashboardUserControl());
+            fullNameLabel.Text = doctor.name + " " + doctor.surname;
+
+            addUserControl(new DashboardUserControl(doctor));
+
         }
 
         private void addUserControl(UserControl userControl)
@@ -24,13 +28,13 @@ namespace MedAppointments
             panelContainer.Controls.Add(userControl);
             userControl.BringToFront();
         }
-        private void DasboardButtonClick(object sender, EventArgs e) => addUserControl(new DashboardUserControl());
-        private void AppointementsButtonClick(object sender, EventArgs e) => addUserControl(new AppointmentUserControl());
-        private void PatientButtonCLick(object sender, EventArgs e) => addUserControl(new PatientUserControl());
+        private void DasboardButtonClick(object sender, EventArgs e) => addUserControl(new DashboardUserControl(doctor));
+        private void AppointementsButtonClick(object sender, EventArgs e) => addUserControl(new AppointmentUserControl(doctor));
+        private void PatientButtonCLick(object sender, EventArgs e) => addUserControl(new PatientUserControl(doctor));
 
         private void MyProfileButtonClick(object sender, EventArgs e)
         {
-            using (ProfileDetailsForm profileDetails = new ProfileDetailsForm())
+            using (ProfileDetailsForm profileDetails = new ProfileDetailsForm(doctor.id))
             {
                 profileDetails.StartPosition = FormStartPosition.CenterParent;
                 profileDetails.ShowInTaskbar = false;

@@ -31,11 +31,15 @@ namespace MedAppointments.Data.Entities
 
         [Column("createdat")]
         public DateTime createdat { get; set; }
-        
+
+        [Column("doctorid")]
+        public int doctorid { get; set; }
+
 
         // Navigation properties
         public virtual Patient patient { get; set; }
         public virtual Visit visit { get; set; }
         public virtual Status status { get; set; }
+        public virtual Doctor doctor { get; set; }
     }
 }

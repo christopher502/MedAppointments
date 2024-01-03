@@ -25,6 +25,13 @@ namespace MedAppointments.Services
 
         }
 
+        public Doctor? GetDoctorByContactNumber(string contanctnumber)
+        {
+            return databaseContext.doctors
+                .Where(doctor => doctor.contactnumber.Equals(contanctnumber))
+                .FirstOrDefault();
+        }
+
         public Doctor GetDoctorById(int id)
         {
             return databaseContext.doctors.Find(id);

@@ -12,12 +12,14 @@ namespace MedAppointments
     {
         private AppointmentService appointmentService;
         private PatientService patientService;
+        private Doctor doctor;
 
-        public PatientUserControl()
+        public PatientUserControl(Doctor doctor)
         {
             InitializeComponent();
             this.patientService = new PatientService();
             this.appointmentService = new AppointmentService();
+            this.doctor = doctor;
 
             ConfigureButtonColumns();
             InitializeGridContent();
@@ -25,7 +27,7 @@ namespace MedAppointments
 
         private void AddPatientButtonClick(object sender, EventArgs e)
         {
-            using (PatientDetailsForm patientDetails = new PatientDetailsForm(this))
+            using (PatientDetailsForm patientDetails = new PatientDetailsForm(this, doctor))
             {
                 patientDetails.StartPosition = FormStartPosition.CenterParent;
                 patientDetails.ShowInTaskbar = false;
@@ -38,7 +40,7 @@ namespace MedAppointments
             patientdGridView.Rows.Clear();
 
             patientdGridView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            List<Patient> patientList = patientService.GetAllPatients();
+            List<Patient> patientList = patientService.GetAllPatientsByDoctor(doctor);
 
             int x = 0;
             foreach (Patient p in patientList)

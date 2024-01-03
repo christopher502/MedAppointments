@@ -17,6 +17,7 @@ namespace MedAppointments
     public partial class ProfileDetailsForm : Form
     {
         private DoctorService doctorService;
+        private int doctorId;
         private string name {  get; set; }
         private string surname { get; set; }
         private string contactnumber { get; set; }
@@ -24,10 +25,11 @@ namespace MedAppointments
         private Gender gender {  get; set; }
         private DateTime birthdate { get; set; }
 
-        public ProfileDetailsForm()
+        public ProfileDetailsForm(int doctorId)
         {
             InitializeComponent();
             this.doctorService = new DoctorService();
+            this.doctorId = doctorId;
 
             FillProfileInputs();
         }
@@ -66,7 +68,7 @@ namespace MedAppointments
 
         private void FillProfileInputs()
         {
-            Doctor doctor = doctorService.GetAllDoctors().ElementAt(0);
+            Doctor doctor = doctorService.GetDoctorById(doctorId);
             this.name = this.nameInput.Text = doctor.name;
             this.surname = this.surnameInput.Text = doctor.surname;
             this.contactnumber = this.numberInput.Text = doctor.contactnumber;

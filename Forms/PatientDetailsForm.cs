@@ -9,11 +9,13 @@ namespace MedAppointments
     {
         private PatientService patientService;
         private UserControl userControl;
+        private Doctor doctor;
 
-        public PatientDetailsForm(UserControl userControl)
+        public PatientDetailsForm(UserControl userControl, Doctor doctor)
         {
             InitializeComponent();
             this.patientService = new PatientService();
+            this.doctor = doctor;
             this.userControl = userControl;
             genderComboBox.DataSource = Enum.GetValues(typeof(Gender));
         }
@@ -28,7 +30,7 @@ namespace MedAppointments
 
             if (Utils.ValidatePatientInputs(name,surname,contactnumber,birthdate))
             {
-                Patient? patient = patientService.AddPatient(name, surname, contactnumber, gender, birthdate);
+                Patient? patient = patientService.AddPatient(name, surname, contactnumber, gender, birthdate,doctor);
                 
                 string notification = (patient == null) ? "Could not add new patient due to database issues. Please try again later or contact the administrator!" 
                     : "Patient '" + patient.name + " " + patient.surname + "' was successfully added.";
