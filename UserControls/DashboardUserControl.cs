@@ -32,6 +32,7 @@ namespace MedAppointments
             panel10.Controls.Add(customDataGridView);
 
             ConfigureWorkspace();
+            ConfigureStatistics();
             customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointments());
         }
         private void ConfigureWorkspace()
@@ -41,7 +42,10 @@ namespace MedAppointments
 
             drnameLabel.Text = doctorService.GetDoctorById(1).surname;
             specialityLabel.Text = doctorService.GetDoctorById(1).speciality;
+        }
 
+        private void ConfigureStatistics()
+        {
             allPatientsAppointmentsLabel.Text = appointmentService.GetAllPatientsTodaysAppointments().Count().ToString();
             todaysAppointmentsLabel.Text = appointmentService.GetAllTodaysScheduledAppointments().Count().ToString();
             completedAppointmentsLabel.Text = appointmentService.GetAllCompletedAppointments().Count.ToString();
@@ -56,22 +60,32 @@ namespace MedAppointments
                 appointmentDetails.ShowInTaskbar = false;
                 appointmentDetails.ShowDialog();
             }
+            ConfigureStatistics();
             customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointments());
-
         }
 
 
         private void EditButtonClick(object sender, DataGridViewCellEventArgs e)
         {
-            object rowHeader = customDataGridView.Rows[e.RowIndex].HeaderCell.Value;
 
-            using (EditAppointmentForm editAppointmentForm = new EditAppointmentForm((int)rowHeader))
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                editAppointmentForm.StartPosition = FormStartPosition.CenterParent;
-                editAppointmentForm.ShowInTaskbar = false;
-                editAppointmentForm.ShowDialog();
+                DataGridView dataGridView = (DataGridView)sender;
+
+                if (dataGridView.Columns[e.ColumnIndex] is DataGridViewImageColumn)
+                {
+                    object rowHeader = dataGridView.Rows[e.RowIndex].HeaderCell.Value;
+
+                    using (EditAppointmentForm editAppointmentForm = new EditAppointmentForm((int)rowHeader))
+                    {
+                        editAppointmentForm.StartPosition = FormStartPosition.CenterParent;
+                        editAppointmentForm.ShowInTaskbar = false;
+                        editAppointmentForm.ShowDialog();
+                    }
+                    ConfigureStatistics();
+                    customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointments());
+                }
             }
-            customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointments());
         }
 
         private void CreateRoundedCorners()

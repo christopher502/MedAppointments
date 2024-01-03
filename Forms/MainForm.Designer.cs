@@ -67,10 +67,10 @@ namespace MedAppointments
             // fullNameLabel
             // 
             fullNameLabel.AutoSize = true;
-            fullNameLabel.Font = new Font("Comfortaa", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            fullNameLabel.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             fullNameLabel.Location = new Point(1021, 24);
             fullNameLabel.Name = "fullNameLabel";
-            fullNameLabel.Size = new Size(124, 20);
+            fullNameLabel.Size = new Size(124, 18);
             fullNameLabel.TabIndex = 22;
             fullNameLabel.Text = "Name Surname";
             // 
@@ -78,16 +78,16 @@ namespace MedAppointments
             // 
             panel11.BackgroundImage = Resources.profile_icon;
             panel11.BackgroundImageLayout = ImageLayout.Zoom;
-            panel11.Location = new Point(980, 17);
+            panel11.Location = new Point(989, 18);
             panel11.Name = "panel11";
-            panel11.Size = new Size(35, 35);
+            panel11.Size = new Size(30, 30);
             panel11.TabIndex = 21;
             // 
             // patientsButton
             // 
             patientsButton.FlatAppearance.BorderSize = 0;
             patientsButton.FlatStyle = FlatStyle.Flat;
-            patientsButton.Font = new Font("Comfortaa", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            patientsButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             patientsButton.Location = new Point(624, 19);
             patientsButton.Name = "patientsButton";
             patientsButton.RightToLeft = RightToLeft.No;
@@ -101,7 +101,7 @@ namespace MedAppointments
             // 
             appointmentsButton.FlatAppearance.BorderSize = 0;
             appointmentsButton.FlatStyle = FlatStyle.Flat;
-            appointmentsButton.Font = new Font("Comfortaa", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            appointmentsButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             appointmentsButton.Location = new Point(476, 19);
             appointmentsButton.Name = "appointmentsButton";
             appointmentsButton.Size = new Size(132, 29);
@@ -114,7 +114,7 @@ namespace MedAppointments
             // 
             dashboardButton.FlatAppearance.BorderSize = 0;
             dashboardButton.FlatStyle = FlatStyle.Flat;
-            dashboardButton.Font = new Font("Comfortaa", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dashboardButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dashboardButton.Location = new Point(355, 19);
             dashboardButton.Name = "dashboardButton";
             dashboardButton.Size = new Size(105, 29);
@@ -187,8 +187,6 @@ namespace MedAppointments
             mainContainer.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
-
-            panelContainer.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelContainer.Width, panelContainer.Height, 25, 25));
         }
 
         #endregion

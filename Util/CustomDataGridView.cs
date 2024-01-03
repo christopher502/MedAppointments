@@ -1,7 +1,9 @@
 ﻿using MedAppointments.Data.Entities;
 using MedAppointments.Forms;
+using MedAppointments.Properties;
 using MedAppointments.Services;
 using System.Security.Cryptography;
+using System.Windows.Forms;
 
 namespace MedAppointments.Util
 {
@@ -31,19 +33,21 @@ namespace MedAppointments.Util
             Columns.Add("dateColumn", "Date");
             Columns.Add("timeColumn", "Time");
             Columns.Add("contactColumn", "Contact");
+            Columns.Add("statusColumn", "Status");
 
             Columns["numberColumn"].Width = 50;
-            Columns["patientColumn"].Width = 250;
+            Columns["patientColumn"].Width = 200;
             Columns["visitColumn"].Width = 158;
             Columns["dateColumn"].Width = 158;
             Columns["timeColumn"].Width = 158;
             Columns["contactColumn"].Width = 158;
+            Columns["statusColumn"].Width = 158;
 
-            DataGridViewButtonColumn editColumn = new DataGridViewButtonColumn();
-            editColumn.Width = 150;
-            editColumn.Text = "Edit";
-            editColumn.UseColumnTextForButtonValue = true;
-            Columns.Add(editColumn);
+            Columns.Add(new DataGridViewImageColumn()
+            {
+                Image = Resources.edit_icon,
+                Width = 50
+            });
         }
 
         private void SetColumnsAlignment()
@@ -117,6 +121,7 @@ namespace MedAppointments.Util
                 gridRow.Cells[3].Value = a.appointmentdate.ToString("dd-MM-yyyy");
                 gridRow.Cells[4].Value = a.appointmenttime.ToString("hh\\:mm");
                 gridRow.Cells[5].Value = a.patient.contactnumber;
+                gridRow.Cells[6].Value = a.status.name;
             }
             SetRowCellHeight(40);
         }

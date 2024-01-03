@@ -1,5 +1,6 @@
 ﻿using MedAppointments.Data.Entities;
 using MedAppointments.Forms;
+using MedAppointments.Properties;
 using MedAppointments.Services;
 using MedAppointments.Util;
 using System.Data;
@@ -9,12 +10,14 @@ namespace MedAppointments
 {
     public partial class PatientUserControl : UserControl
     {
+        private AppointmentService appointmentService;
         private PatientService patientService;
 
         public PatientUserControl()
         {
             InitializeComponent();
             this.patientService = new PatientService();
+            this.appointmentService = new AppointmentService();
 
             ConfigureButtonColumns();
             InitializeGridContent();
@@ -49,7 +52,7 @@ namespace MedAppointments
                 gridRow.Cells[2].Value = p.birthdate.ToString("dd-MM-yyyy");
                 gridRow.Cells[3].Value = p.gender.ToString();
                 gridRow.Cells[4].Value = p.contactnumber;
-                gridRow.Cells[5].Value = p.visits;
+                gridRow.Cells[5].Value = appointmentService.GetCompletedAppointmentsByPatient(p).Count();
             }
 
             patientdGridView.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.TopLeft;
@@ -75,19 +78,17 @@ namespace MedAppointments
 
         private void ConfigureButtonColumns()
         {
-            DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
-            editButton.Width = 75;
-            editButton.Text = "Edit";
-            editButton.UseColumnTextForButtonValue = true;
+            patientdGridView.Columns.Add(new DataGridViewImageColumn()
+            {
+                Image = Resources.delete24,
+                Width = 40
+            });
 
-            DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn();
-            deleteButton.Width = 75;
-            deleteButton.Text = "Delete";
-            deleteButton.UseColumnTextForButtonValue = true;
-
-            patientdGridView.Columns.Add(deleteButton);
-            patientdGridView.Columns.Add(editButton);
-
+            patientdGridView.Columns.Add(new DataGridViewImageColumn()
+            {
+                Image = Resources.edit24_icon,
+                Width = 40
+            });
             patientdGridView.CellContentClick += ActionButtonsClick;
         }
 
@@ -97,7 +98,7 @@ namespace MedAppointments
             {
                 DataGridView dataGridView = (DataGridView)sender;
 
-                if (dataGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+                if (dataGridView.Columns[e.ColumnIndex] is DataGridViewImageColumn)
                 {
                     object rowHeader = dataGridView.Rows[e.RowIndex].HeaderCell.Value;
                     if (e.ColumnIndex == 6)
