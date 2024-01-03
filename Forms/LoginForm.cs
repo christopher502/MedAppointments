@@ -1,15 +1,7 @@
 ﻿using MedAppointments.Data.Entities;
 using MedAppointments.Services;
+using MedAppointments.Util;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MedAppointments.Forms
 {
@@ -30,7 +22,7 @@ namespace MedAppointments.Forms
             if (!contactnumber.IsNullOrEmpty() || !password.IsNullOrEmpty())
             {
                 Doctor? doctor = doctorService.GetDoctorByContactNumber(contactnumber);
-                if (doctor != null)
+                if (doctor != null && PasswordHasher.VerifyPassword(password,doctor.password))
                 {
                     MainForm main = new MainForm(doctor);
                     this.Hide();
