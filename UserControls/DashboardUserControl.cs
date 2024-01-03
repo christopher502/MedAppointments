@@ -23,21 +23,17 @@ namespace MedAppointments
         public DashboardUserControl()
         {
             InitializeComponent();
+            CreateRoundedCorners();
+
             this.appointmentService = new AppointmentService();
             this.doctorService = new DoctorService();
+            customDataGridView = new CustomDataGridView(13, 74, 1105, 621);
+            customDataGridView.CellContentClick += EditButtonClick;
+            panel10.Controls.Add(customDataGridView);
 
             ConfigureWorkspace();
-            CreateDataGridView();
-        }
-
-        private void CreateDataGridView()
-        {
-            customDataGridView = new CustomDataGridView(13, 74, 1105, 621);
-            panel10.Controls.Add(customDataGridView);
             customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointments());
-            customDataGridView.CellContentClick += EditButtonClick;
         }
-
         private void ConfigureWorkspace()
         {
             DateTime today = DateTime.Today;
@@ -76,6 +72,22 @@ namespace MedAppointments
                 editAppointmentForm.ShowDialog();
             }
             customDataGridView.InitializeGridContent(appointmentService.GetAllPatientsTodaysAppointments());
+        }
+
+        private void CreateRoundedCorners()
+        {
+            welcomePanelBackground.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, welcomePanelBackground.Width, welcomePanelBackground.Height, 25, 25));
+            addAppointmentButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, addAppointmentButton.Width, addAppointmentButton.Height, 20, 20));
+            panel1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 25, 25));
+            panel2.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel2.Width, panel2.Height, 25, 25));
+            panel3.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel3.Width, panel3.Height, 25, 25));
+            panel4.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel4.Width, panel4.Height, 25, 25));
+            panel5.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel5.Width, panel5.Height, 25, 25));
+            panel6.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel6.Width, panel6.Height, 25, 25));
+            panel7.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel7.Width, panel7.Height, 25, 25));
+            panel8.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel8.Width, panel8.Height, 25, 25));
+            panel9.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel9.Width, panel9.Height, 25, 25));
+            panel10.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel10.Width, panel10.Height, 25, 25));
         }
     }
 }
