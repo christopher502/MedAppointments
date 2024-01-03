@@ -36,6 +36,7 @@ namespace MedAppointments
         {
             using (ProfileDetailsForm profileDetails = new ProfileDetailsForm(doctor.id))
             {
+                profileDetails.Owner = this;
                 profileDetails.StartPosition = FormStartPosition.CenterParent;
                 profileDetails.ShowInTaskbar = false;
                 profileDetails.ShowDialog();

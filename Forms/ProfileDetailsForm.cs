@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using MedAppointments.Services;
 using MedAppointments.Util;
 using MedAppointments.Enums;
+using MedAppointments.Forms;
 
 namespace MedAppointments
 {
@@ -18,11 +19,11 @@ namespace MedAppointments
     {
         private DoctorService doctorService;
         private int doctorId;
-        private string name {  get; set; }
+        private string name { get; set; }
         private string surname { get; set; }
         private string contactnumber { get; set; }
-        private string speciality {  get; set; }
-        private Gender gender {  get; set; }
+        private string speciality { get; set; }
+        private Gender gender { get; set; }
         private DateTime birthdate { get; set; }
 
         public ProfileDetailsForm(int doctorId)
@@ -43,18 +44,19 @@ namespace MedAppointments
             DateTime birthdate = birthDatePicker.Value;
             Gender gender = (Gender)Enum.Parse(typeof(Gender), genderComboBox.SelectedItem.ToString());
 
-            if(Utils.ValidateProfileInputs(name,surname,contactnumber, birthdate, speciality))
+            if (Utils.ValidateProfileInputs(name, surname, contactnumber, birthdate, speciality))
             {
-                if(!this.name.Equals(name) || !this.surname.Equals(surname) || !this.contactnumber.Equals(contactnumber) || !this.speciality.Equals(speciality)
-                    || !this.gender.Equals(gender) || (this.birthdate ==  birthdate) == false)
+                if (!this.name.Equals(name) || !this.surname.Equals(surname) || !this.contactnumber.Equals(contactnumber) || !this.speciality.Equals(speciality)
+                    || !this.gender.Equals(gender) || (this.birthdate == birthdate) == false)
                 {
                     Doctor doctor = doctorService.UpdateDoctorProfile(1, name, surname, birthdate, contactnumber, gender, speciality);
                     string notification = (doctor == null) ? "Could not update profile due to database issues. Please try again later or contact the administrator!"
-    :                   "Your profile was successfully updated.";
+    : "Your profile was successfully updated.";
 
                     this.Close();
                     MessageBox.Show(notification);
-                } else
+                }
+                else
                 {
                     this.Close();
                 }
@@ -77,6 +79,15 @@ namespace MedAppointments
             this.genderComboBox.DataSource = Enum.GetValues(typeof(Gender));
             this.genderComboBox.SelectedItem = doctor.gender;
             this.gender = doctor.gender;
+        }
+
+        private void LogOutButonClick(object sender, EventArgs e)
+        {
+            this.Owner.Close();
+            this.Close();
+
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
     }
 }
