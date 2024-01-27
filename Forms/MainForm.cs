@@ -41,6 +41,11 @@ namespace MedAppointments
                 profileDetails.ShowInTaskbar = false;
                 profileDetails.ShowDialog();
             }
+
+            if (panelContainer.Controls[0] is DashboardUserControl)
+            {
+                addUserControl(new DashboardUserControl(doctor));
+            }
         }
     }
 }

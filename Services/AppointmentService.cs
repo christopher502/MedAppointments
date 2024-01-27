@@ -36,8 +36,8 @@ namespace MedAppointments.Services
                 statusid = status.id,
                 doctorid = doctor.id,
                 appointmenttime = appointmentTime,
-                appointmentdate = appointmentDate.ToUniversalTime(),
-                createdat = DateTime.Now.ToUniversalTime()
+                appointmentdate = appointmentDate.AddHours(2).ToUniversalTime(),
+                createdat = DateTime.Now.AddHours(2).ToUniversalTime()
             };
             databaseContext.appointments.Add(appointment);
 
@@ -61,9 +61,9 @@ namespace MedAppointments.Services
 
         public List<Appointment> GetAllPatientsTodaysAppointmentsByDoctor(Doctor doctor)
         {
-            DateTime currentDateInUtc = DateTime.Today.ToUniversalTime();
+            DateTime currentDate = DateTime.Today;
             return databaseContext.appointments
-                .Where(appointment =>  (appointment.appointmentdate.Day == currentDateInUtc.Day && appointment.appointmentdate.Month == currentDateInUtc.Month && appointment.appointmentdate.Year == currentDateInUtc.Year && !appointment.status.name.Equals("Completed") && appointment.doctorid == doctor.id))
+                .Where(appointment => (appointment.appointmentdate.Day == currentDate.Day && appointment.appointmentdate.Month == currentDate.Month && appointment.appointmentdate.Year == currentDate.Year && !appointment.status.name.Equals("Completed") && appointment.doctorid == doctor.id))
                 .AsNoTracking()
                 .Include(p => p.patient)
                 .Include(v => v.visit)
@@ -81,9 +81,9 @@ namespace MedAppointments.Services
 
         public List<Appointment> GetAllTodaysScheduledAppointmentsByDoctor(Doctor doctor)
         {
-            DateTime currentDateInUtc = DateTime.Today.ToUniversalTime();
+            DateTime currentDate = DateTime.Today;
             return databaseContext.appointments
-                .Where(appointment => (appointment.createdat.Day == currentDateInUtc.Day && appointment.createdat.Month == currentDateInUtc.Month && appointment.createdat.Year == currentDateInUtc.Year && appointment.doctorid == doctor.id))
+                .Where(appointment => (appointment.createdat.Day == currentDate.Day && appointment.createdat.Month == currentDate.Month && appointment.createdat.Year == currentDate.Year && appointment.doctorid == doctor.id))
                 .ToList();
         }
 
@@ -109,7 +109,7 @@ namespace MedAppointments.Services
             appointment.patientid = patient.id;
             appointment.statusid = status.id;
             appointment.visitid = visit.id;
-            appointment.appointmentdate = date.ToUniversalTime();
+            appointment.appointmentdate = date.AddHours(2).ToUniversalTime();
             appointment.appointmenttime = time;
 
             try

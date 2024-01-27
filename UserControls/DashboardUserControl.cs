@@ -27,10 +27,13 @@ namespace MedAppointments
             InitializeComponent();
             CreateRoundedCorners();
 
-            this.doctor = doctor;
-            this.appointmentService = new AppointmentService();
             this.doctorService = new DoctorService();
+            this.appointmentService = new AppointmentService();
             customDataGridView = new CustomDataGridView(13, 74, 1105, 621);
+
+            this.doctor = doctorService.GetDoctorById(doctor.id);
+
+
             customDataGridView.CellContentClick += EditButtonClick;
             panel10.Controls.Add(customDataGridView);
 
